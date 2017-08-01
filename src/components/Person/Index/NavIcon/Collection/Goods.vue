@@ -21,12 +21,12 @@
 <style lang="less">
   #goods {
     width: 100%;
-    min-height: 600px;
+    min-height: 550px;
     position: relative;
     >.add-img{
       position: absolute;
       bottom: 0;
-      right: 3%;
+      right: 5%;
     }
   }
 </style>

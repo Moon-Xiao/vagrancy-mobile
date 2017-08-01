@@ -5,7 +5,7 @@
       <template slot="right">
         <!--<embed src="/static/img/person/svg/tip.svg" height="20px" width="20px" style="margin-right: 15px"></embed>-->
         <!--<embed src="/static/img/person/svg/setting.svg" height="20px" width="20px" style="margin-right: 15px"></embed>-->
-        <router-link to="">
+        <router-link to="/person/message">
           <span class="my-icon"
                 style="display: inline-block;background-image: url('/static/img/person/svg/tip.svg')"></span>
         </router-link>
@@ -17,18 +17,21 @@
     </nav-header>
     <!--<top-panel></top-panel>-->
     <logined-panel></logined-panel>
-    <div class="icons">
-      <nav-icon v-for="i in icons" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-icon>
-    </div>
-    <div class="nav-discount">
-      <nav-strip v-for="i in discounts" :info="i.info" :icon="i.icon"></nav-strip>
-    </div>
-    <div class="nav-feet">
-      <nav-strip v-for="i in feet" :info="i.info" :icon="i.icon"></nav-strip>
-    </div>
-    <div class="nav-answer">
-      <nav-strip v-for="i in answers" :info="i.info" :icon="i.icon"></nav-strip>
-    </div>
+    <!--<template>-->
+    <!--<div class="icons">-->
+    <!--<nav-icon v-for="i in icons" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-icon>-->
+    <!--</div>-->
+    <!--<div class="nav-discount">-->
+    <!--<nav-strip v-for="i in discounts" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>-->
+    <!--</div>-->
+    <!--<div class="nav-feet">-->
+    <!--<nav-strip v-for="i in feet" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>-->
+    <!--</div>-->
+    <!--<div class="nav-answer">-->
+    <!--<nav-strip v-for="i in answers" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>-->
+    <!--</div>-->
+    <!--</template>-->
+    <nav-panel></nav-panel>
   </div>
 </template>
 
@@ -38,28 +41,28 @@
   import LoginedPanel from './Index/LoginedPanel.vue'
   import NavIcon from './Index/NavIcon.vue'
   import NavStrip from './Index/NavStrip.vue'
+  import NavPanel from './Others/NavPanel.vue'
 
   export default {
     data () {
       return {
         icons: [
           {icon: '/static/img/person/svg/icon1.svg', info: '我的游记', icon_link: '/person/travels'},
-          {icon: '/static/img/person/svg/icon3.svg', info: '我的收藏', icon_link: '/person/collection'},
-          {icon: '/static/img/person/svg/icon2.svg', info: '我的行程', icon_link: '/person/schedules'}
+          {icon: '/static/img/person/svg/icon2.svg', info: '我的收藏', icon_link: '/person/collection'},
+          {icon: '/static/img/person/svg/icon3.svg', info: '我的行程', icon_link: '/person/schedules'}
         ],
         discounts: [
-          {icon: '/static/img/person/svg/discount1.svg', info: '我的订单'},
-          {icon: '/static/img/person/svg/discount2.svg', info: '我的折扣订单'},
-          {icon: '/static/img/person/svg/discount3.svg', info: '我的折扣优惠券'}
+          {icon: '/static/img/person/svg/discount1.svg', info: '我的订单', icon_link: '/person/orders'},
+          {icon: '/static/img/person/svg/discount3.svg', info: '我的优惠券', icon_link: '/person/coupons'}
         ],
         feet: [
-          {icon: '/static/img/person/svg/feet1.svg', info: '我的足迹'},
-          {icon: '/static/img/person/svg/feet2.svg', info: '等待我点评的目的地'}
+          {icon: '/static/img/person/svg/feet1.svg', info: '我的足迹', icon_link: '/person/feet'},
+          {icon: '/static/img/person/svg/feet2.svg', info: '等待我点评的目的地', icon_link: '/no-page'}
         ],
         answers: [
-          {icon: '/static/img/person/svg/answer1.svg', info: '我的发布的帖子'},
-          {icon: '/static/img/person/svg/answer2.svg', info: '我的问答'},
-          {icon: '/static/img/person/svg/answer3.svg', info: '我的结伴'}
+          {icon: '/static/img/person/svg/answer1.svg', info: '我的发布的帖子', icon_link: '/no-page'},
+          {icon: '/static/img/person/svg/answer2.svg', info: '我的问答', icon_link: '/no-page'},
+          {icon: '/static/img/person/svg/answer3.svg', info: '我的结伴', icon_link: '/no-page'}
         ]
       }
     },
@@ -68,7 +71,8 @@
       TopPanel,
       LoginedPanel,
       NavIcon,
-      NavStrip
+      NavStrip,
+      NavPanel
     },
     methods: {}
   }

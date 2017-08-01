@@ -2,20 +2,15 @@
   <div id="travels">
     <nav-header class="header-style">
       <div slot="left" class="back"></div>
-      <div slot="middle" style="color: white">我的游记</div>
+      <div slot="middle" style="color: white">消息</div>
     </nav-header>
-    <div class="travels-nav">
-      <img src="/static/img/person/img/travels-ad.jpg" style="width: 100%;margin-top: 20px">
-      <div class="add-img">
-        <router-link to="#">
-          <img src="/static/img/person/svg/collectionAdd.svg" style="width: 70px;">
-        </router-link>
-      </div>
+    <div style="padding-top: 20px">
+      <img src="/static/img/person/img/message-ad.jpg" style="width: 100%">
     </div>
   </div>
 </template>
 <script>
-  import NavHeader from '../../Comment/NavHeader.vue'
+  import NavHeader from '../Comment/NavHeader.vue'
 
   export default {
     data () {
@@ -49,15 +44,6 @@
         background-image: url("/static/img/person/svg/back.svg");
         background-repeat: no-repeat;
         background-position: center;
-      }
-    }
-    > .travels-nav {
-      position: relative;
-      min-height: 600px;
-      > .add-img {
-        position: absolute;
-        bottom: 3%;
-        right: 5%;
       }
     }
   }

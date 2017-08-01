@@ -7,14 +7,22 @@
     <form class="schedule-form">
       <div class="form-nav">
         <div class="schedule-time">
-          <div class="time-back">
-            <input style="width: 100%;opacity: 0" type="date"/>
+          <div id="start_time" class="time-back">
+            <div class="time-wrapper">
+              <input :value="startTime" class="time-text" type="text" readonly placeholder="预计出发时间"><span
+              class="time-btn">+</span>
+            </div>
+            <input v-model="startTime" style="width: 100%;opacity: 0" type="date"/>
           </div>
           <div style="flex: 1;text-align: center">
             <img src="/static/img/person/svg/line.svg" style="width: 20px;"/>
           </div>
           <div class="time-back">
-            <input style="width: 100%;opacity: 0" type="date"/>
+            <div class="time-wrapper">
+              <input :value="endTime" class="time-text" type="text" readonly placeholder="预计返回时间"><span
+              class="time-btn">+</span>
+            </div>
+            <input v-model="endTime" style="width: 100%;opacity: 0" type="date"/>
           </div>
         </div>
         <div class="search-style">
@@ -38,7 +46,16 @@
 
   export default {
     data () {
-      return {}
+      return {
+        startTime: '',
+        endTime: ''
+      }
+    },
+    computed: {
+      getTime: function () {
+        let date = new Date()
+        return date.getYear() + '-' + date.getMonth() + '-' + date.getDay()
+      }
     },
     props: {},
     components: {
@@ -87,6 +104,7 @@
       width: 100%;
       background-color: white;
       > .form-nav {
+        padding-top: 40px;
         width: 90%;
         margin: 0 auto;
         > .schedule-time {
@@ -94,7 +112,27 @@
           display: flex;
           > .time-back {
             flex: 4;
-            border: 1px solid black;
+            position: relative;
+            > .time-wrapper {
+              width: 100%;
+              display: flex;
+              position: absolute;
+              > .time-text {
+                width: 100%;
+                border: 1px solid @back-color;
+              }
+              > .time-text::placeholder {
+                color: @back-color;
+                padding-left: 5px;
+              }
+              > .time-btn {
+                text-align: center;
+                width: 24px;
+                color: @back-color;
+                border: 1px solid @back-color;
+                border-left: none;
+              }
+            }
           }
         }
         > .search-style {
@@ -116,8 +154,10 @@
         }
       }
       > .submit-btn {
+        position: fixed;
         padding: 10px;
         width: 90%;
+        bottom: 40px;
         text-align: center;
         background-color: @back-color;
         color: white;

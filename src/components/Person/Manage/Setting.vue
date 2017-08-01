@@ -2,8 +2,7 @@
   <div id="setting">
     <nav-header class="header-style">
       <div slot="left" class="back"></div>
-      <div slot="middle" style="color: white">设置
-      </div>
+      <div slot="middle" style="color: white">设置</div>
     </nav-header>
     <div>
       <h4>个人设置</h4>

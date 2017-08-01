@@ -4,7 +4,6 @@
       <!--<span class="icon"><div><embed align="center" :src="icon" type="image/svg+xml"/></div></span>-->
       <span class="icon" :style="'background-image:url('+icon+')'"></span>
       <span class="info">{{info}}</span>
-      <span class="detail">&gt</span>
     </router-link>
   </div>
 </template>
@@ -30,17 +29,6 @@
     a {
       position: relative;
       display: block;
-      .detail {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50px;
-        height: 100%;
-        line-height: @height;
-        text-align: center;
-        color: #ced1d5;
-        font-size: 22px;
-      }
     }
     .icon {
       display: inline-block;
