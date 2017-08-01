@@ -54,12 +54,14 @@
 </script>
 <style lang="less">
   @back-color:#11bf79;
+  @nav-color:#f5f5f5;
   body {
     margin: 0;
     padding: 0;
   }
 
   #edit-info {
+    background-color: white;
     width: 100%;
     .back {
       width: 100%;
@@ -98,6 +100,7 @@
           padding: 20px 0 20px 10px;
           display: inline-block;
           border: none;
+          background-color: white;
           color: @back-color;
           border-bottom: 1px solid @back-color;
         }
@@ -107,14 +110,15 @@
       }
       > .form-submit {
         margin-top: 60px;
+        padding-bottom: 100px;
         width: 100%;
         text-align: center;
         > button {
+          background-color: white;
           padding: 10px 50px;
           width: 50%;
           margin: 0 auto;
           text-align: center;
-          background-color: white;
           color: @back-color;
           border: 1px solid @back-color;
           border-radius: 3px;

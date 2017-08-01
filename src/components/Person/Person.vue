@@ -5,15 +5,20 @@
       <template slot="right">
         <!--<embed src="/static/img/person/svg/tip.svg" height="20px" width="20px" style="margin-right: 15px"></embed>-->
         <!--<embed src="/static/img/person/svg/setting.svg" height="20px" width="20px" style="margin-right: 15px"></embed>-->
-        <span class="my-icon"
-              style="display: inline-block;background-image: url('/static/img/person/svg/tip.svg')"></span>
-        <span class="my-icon" style="display: inline-block;background-image: url('/static/img/person/svg/setting.svg')"></span>
+        <router-link to="">
+          <span class="my-icon"
+                style="display: inline-block;background-image: url('/static/img/person/svg/tip.svg')"></span>
+        </router-link>
+        <router-link to="/person/setting">
+          <span class="my-icon"
+                style="display: inline-block;background-image: url('/static/img/person/svg/setting.svg')"></span>
+        </router-link>
       </template>
     </nav-header>
     <!--<top-panel></top-panel>-->
     <logined-panel></logined-panel>
     <div class="icons">
-      <nav-icon v-for="i in icons" :info="i.info" :icon="i.icon"></nav-icon>
+      <nav-icon v-for="i in icons" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-icon>
     </div>
     <div class="nav-discount">
       <nav-strip v-for="i in discounts" :info="i.info" :icon="i.icon"></nav-strip>
@@ -38,9 +43,9 @@
     data () {
       return {
         icons: [
-          {icon: '/static/img/person/svg/bag.svg', info: '我的游记'},
-          {icon: '/static/img/person/svg/bag.svg', info: '我的收藏'},
-          {icon: '/static/img/person/svg/bag.svg', info: '我的行程'}
+          {icon: '/static/img/person/svg/icon1.svg', info: '我的游记', icon_link: '/person/travels'},
+          {icon: '/static/img/person/svg/icon3.svg', info: '我的收藏', icon_link: '/person/collection'},
+          {icon: '/static/img/person/svg/icon2.svg', info: '我的行程', icon_link: '/person/schedules'}
         ],
         discounts: [
           {icon: '/static/img/person/svg/discount1.svg', info: '我的订单'},
@@ -70,7 +75,7 @@
 </script>
 
 <style lang="less">
-  @nav-color:#f5f5f5;
+  @nav-color: #f5f5f5;
   body {
     padding: 0;
     margin: 0;

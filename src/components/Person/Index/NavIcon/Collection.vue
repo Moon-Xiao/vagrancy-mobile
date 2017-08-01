@@ -27,8 +27,8 @@
   </div>
 </template>
 <script>
-  import NavHeader from './Comment/NavHeader.vue'
-  import Tab from './Comment/Tab.vue'
+  import NavHeader from '../../Comment/NavHeader.vue'
+  import Tab from '../../Comment/Tab.vue'
   import Travels from './Collection/Travels.vue'
   import Destination from './Collection/Destination.vue'
   import Goods from './Collection/Goods.vue'

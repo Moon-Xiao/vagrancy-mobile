@@ -3,10 +3,12 @@
     <div class="info-nav">
       <div class="info-nav-left">
         <div class="info-top">
-          <div class="info-img" :style="'background-image:url('+img+')'"></div>
-          <p class="info-name">{{name}}
-            <embed :src="sex" height="16px"></embed>
-          </p>
+          <router-link to="/person/edit-info">
+            <div class="info-img" :style="'background-image:url('+img+')'"></div>
+            <p class="info-name">{{name}}
+              <embed :src="sex" height="16px"></embed>
+            </p>
+          </router-link>
         </div>
         <div class="info-bottom">
           <span class="bottom-item"><span style="margin-right: 6px">{{fans}}</span><span>粉丝</span></span>
@@ -18,17 +20,19 @@
       </div>
       <div class="info-nav-right">
 
-        <!--<template>-->
-        <!--<embed align="middle" src="/static/img/person/svg/sign.svg" width="30px"></embed>-->
-        <!--<span style="font-size: 12px;display: block;text-align: center">签到</span>-->
-        <!--</template>-->
-
         <template>
-          <div style="height: 22px; width: 56px;border:solid 1px #fff;border-radius: 1px;display: flex;justify-content: center;align-items: center">
-            <embed src="/static/img/person/svg/attention.svg" height="16px"></embed>
-            <span style="font-size: 12px;">关注</span>
-          </div>
+          <router-link to="/person/sign">
+            <embed align="middle" src="/static/img/person/svg/sign.svg" width="30px"></embed>
+            <span style="font-size: 12px;display: block;text-align: center;color: white">签到</span>
+          </router-link>
         </template>
+
+        <!--<template>-->
+        <!--<div style="height: 22px; width: 56px;border:solid 1px #fff;border-radius: 1px;display: flex;justify-content: center;align-items: center">-->
+        <!--<embed src="/static/img/person/svg/attention.svg" height="16px"></embed>-->
+        <!--<span style="font-size: 12px;color: white">关注</span>-->
+        <!--</div>-->
+        <!--</template>-->
 
       </div>
     </div>
@@ -68,21 +72,24 @@
       > .info-nav-left {
         margin-left: 20px;
         > .info-top {
-          display: flex;
-          align-items: center;
-          > .info-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-          > .info-name {
+          a {
+            width: 240px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            color: white;
-            margin-left: 20px;
+            .info-img {
+              width: 70px;
+              height: 70px;
+              border-radius: 50%;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+            .info-name {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: white;
+              margin-left: 20px;
+            }
           }
         }
         > .info-bottom {

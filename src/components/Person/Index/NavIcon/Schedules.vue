@@ -7,12 +7,14 @@
 
 
     <div class="nav-bottom">
-      <img style="width: 20px;vertical-align: middle;" src="/static/img/person/svg/add.svg">创建行程
+      <router-link to="/person/schedules/create-schedule" style="text-decoration: none">
+        <img style="width: 20px;vertical-align: middle;" src="/static/img/person/svg/add.svg"><span style="color: white">创建行程</span>
+      </router-link>
     </div>
   </div>
 </template>
 <script>
-  import NavHeader from './Comment/NavHeader.vue'
+  import NavHeader from '../../Comment/NavHeader.vue'
 
   export default {
     data () {
@@ -34,9 +36,7 @@
   }
 
   #schedules {
-    position: relative;
     background-color: @nav-color;
-    min-height: 700px;
     width: 100%;
     .header-style {
       background-color: @back-color;
@@ -57,7 +57,7 @@
       color: white;
       background-color: @back-color;
       text-align: center;
-      position: absolute;
+      position: fixed;
       bottom: 0;
       font-size: 18px;
     }

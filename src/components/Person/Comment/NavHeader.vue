@@ -37,7 +37,7 @@
       vertical-align: top;
     }
     > .header-middle {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 500;
       height: 100%;
       display: inline-block;

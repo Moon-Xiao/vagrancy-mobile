@@ -1,8 +1,10 @@
 <template>
-  <div id="destination">
+  <div id="goods">
     <img src="/static/img/person/img/defaultCollection.png" style="width: 100%;">
     <div class="add-img">
-      <img src="/static/img/person/svg/collectionAdd.svg" style="width: 70px;">
+      <router-link to="#">
+        <img src="/static/img/person/svg/collectionAdd.svg" style="width: 70px;">
+      </router-link>
     </div>
   </div>
 </template>
@@ -17,7 +19,7 @@
   }
 </script>
 <style lang="less">
-  #destination {
+  #goods {
     width: 100%;
     min-height: 600px;
     position: relative;

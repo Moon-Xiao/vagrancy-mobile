@@ -7,26 +7,32 @@
     </nav-header>
     <div>
       <h4>个人设置</h4>
-      <nav-strip class="strip-style">
-        <div slot="left" class="icon-style" style="background-image: url('/static/img/person/svg/p1.svg')"></div>
-        <div slot="middle" class="middle-style">账号密码</div>
-        <div slot="right" class="icon-style right-img-style">
-          <span class="img-style" :style="'background-image:url('+img+')'"></span>
-          <span>&gt</span>
-        </div>
-      </nav-strip>
-      <nav-strip class="strip-style" v-for="item in personSetting">
-        <div :style="'background-image: url('+item.icon+')'" slot="left" class="icon-style"></div>
-        <div slot="middle" class="middle-style">{{item.info}}</div>
-        <div slot="right" class="icon-style">&gt</div>
-      </nav-strip>
+      <div class="nav-back">
+        <router-link to="/person/edit-info">
+          <nav-strip class="strip-style">
+            <div slot="left" class="icon-style" style="background-image: url('/static/img/person/svg/p1.svg')"></div>
+            <div slot="middle" class="middle-style"><span style="color: #333">账号密码</span></div>
+            <div slot="right" class="icon-style right-img-style">
+              <span class="img-style" :style="'background-image:url('+img+')'"></span>
+              <span>&gt</span>
+            </div>
+          </nav-strip>
+        </router-link>
+        <nav-strip class="strip-style" v-for="item in personSetting">
+          <div :style="'background-image: url('+item.icon+')'" slot="left" class="icon-style"></div>
+          <div slot="middle" class="middle-style">{{item.info}}</div>
+          <div slot="right" class="icon-style">&gt</div>
+        </nav-strip>
+      </div>
     </div>
     <div>
       <h4>应用相关</h4>
-      <nav-strip class="strip-style" v-for="item in applicationSetting">
-        <div :style="'background-image: url('+item.icon+')'" slot="left" class="icon-style"></div>
-        <div slot="middle" class="middle-style">{{item.info}}</div>
-      </nav-strip>
+      <div class="nav-back">
+        <nav-strip class="strip-style" v-for="item in applicationSetting">
+          <div :style="'background-image: url('+item.icon+')'" slot="left" class="icon-style"></div>
+          <div slot="middle" class="middle-style">{{item.info}}</div>
+        </nav-strip>
+      </div>
     </div>
   </div>
 </template>
@@ -62,17 +68,19 @@
   }
 </script>
 <style lang="less">
-  @back-color:#11bf79;
+  @back-color: #11bf79;
   body {
     margin: 0;
     padding: 0;
-    background-color: white;
   }
 
   #setting {
     width: 100%;
     color: #333;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
+    a{
+      text-decoration: none;
+    }
     .back {
       width: 100%;
       height: 100%;
@@ -85,11 +93,14 @@
       background-color: @back-color;
       z-index: 1;
     }
+    .nav-back {
+      background-color: white;
+    }
     h4 {
       width: 96%;
       margin: 20px auto;
-      color: #ced1d5;
-      font-weight: 100;
+      color: #aaa;
+      font-weight: 300;
     }
     .strip-style {
       width: 96%;
