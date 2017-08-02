@@ -23,8 +23,8 @@
   }
 
   .des-bottom span {
-    height: 20px;
-    line-height: 20px;
+    height: 25px;
+    line-height: 25px;
     font-size: 14px;
     color: #444;
     margin: 10px 0;

@@ -8,17 +8,17 @@
     <div class="des-tag" style="background-color: white">
       <div class="hot-city">
         <p>热门城市</p>
-        <a v-for="city in cities">
+        <router-link to="/city" v-for="city in cities">
           <img :src="city.img"/>
           <div class="city-name"> {{city.name}}<br/>{{city.ename}} </div>
-        </a>
+        </router-link>
       </div>
       <div class="hot-country">
         <p>热门国家</p>
-        <a v-for="country in countries">
+        <router-link to="/country" v-for="country in countries">
           <img :src="country.img"/>
           <div class="country-name">{{country.name}}<br/>{{country.ename}}</div>
-        </a>
+        </router-link>
       </div>
     </div>
   </div>
@@ -39,13 +39,14 @@
           {img: '/static/images/content2.jpg', name: '杭州', ename: 'Bangkok'}
         ],
         countries: [
+          {img: '/static/images/content2.jpg', name: '中国', ename: 'Bangkok'},
           {img: '/static/images/content1.jpg', name: '泰国', ename: 'Bangkok'},
           {img: '/static/images/content2.jpg', name: '马来西亚', ename: 'Bangkok'},
           {img: '/static/images/content3.jpg', name: '日本', ename: 'Bangkok'},
           {img: '/static/images/content4.jpg', name: '越南', ename: 'Bangkok'},
           {img: '/static/images/content5.jpg', name: '马尔代夫', ename: 'Bangkok'},
-          {img: '/static/images/content1.jpg', name: '东京', ename: 'Bangkok'},
-          {img: '/static/images/content2.jpg', name: '杭州', ename: 'Bangkok'}
+          {img: '/static/images/content1.jpg', name: '韩国', ename: 'Bangkok'}
+
         ]
       }
     }
