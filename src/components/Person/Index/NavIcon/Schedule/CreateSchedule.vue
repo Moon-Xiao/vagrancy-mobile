@@ -31,7 +31,7 @@
         <div class="search-style">
           <search-bar holdText="目的地"></search-bar>
         </div>
-        <div class="info-img">
+        <div ref="img" class="info-img" id="photo-img">
           <input style="width: 100%;height: 100%;opacity: 0" @change="addFile" type="file"
                  accept="image/jpeg, image/png, image/gif"/>
         </div>
@@ -43,12 +43,15 @@
 <script>
   import NavHeader from '../../../Comment/NavHeader.vue'
   import SearchBar from '../../../Comment/SearchBar.vue'
-
   export default {
     data () {
       return {
         startTime: '',
-        endTime: ''
+        endTime: '',
+        startPlace: '',
+        endPlace: '',
+        img: '',
+        imageType: /image.*/
       }
     },
     computed: {
@@ -63,16 +66,16 @@
       SearchBar
     },
     methods: {
-      addFile: function (e) {
+      addFile (e) {
         this.img = e.srcElement.files[0]
         if (this.img.type.match(this.imageType)) {
+          console.log('1', this)
           let reader = new FileReader()
-          reader.onload = (function (aDiv) {
-            return function (e) {
-              aDiv.css('background', 'url(' + e.target.result + ') no-repeat center')
-              aDiv.css('background-size', 'cover')
-            }
-          })(window.$('#photo-img'))
+          reader.onload = e => {
+            this.$refs.img.style.backgroundImage = 'url(\'' + e.target.result + '\')'
+            this.$refs.img.style.backgroundSize = 'cover'
+          }
+          console.log('2', this)
           reader.readAsDataURL(this.img)
         }
       }
@@ -89,6 +92,7 @@
   #create-schedule {
     width: 100%;
     background-color: white;
+    min-height: 600px;
     .header-style {
       background-color: @back-color;
       z-index: 1;

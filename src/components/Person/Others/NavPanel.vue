@@ -4,16 +4,26 @@
       <router-link to="/person/feet">
         <img src="/static/img/person/img/earth.jpg" width="100%"/>
         <div class="other-feet">
-          <span class="icon" style="background-image:url(/static/img/person/svg/feet1.svg)"></span>
+          <span class="icon" style="background-image:url(/static/img/person/svg/other-feet.svg)"></span>
           <div class="info">
-              <div style="text-align:left;height:30px;color: blue;">Ta的足迹</div>
-              <div style="text-align:left;height: 30px;">
-                <span style="color: #000;margin-right: 12px;">11</span><span style="color: #999;">国家</span>
-                <span style="color: #000;margin:0 12px 0 25px;">11</span><span style="color: #999;">城市</span>
-              </div>
+            <div style="text-align:left;height:30px;color: #1296db;">Ta的足迹</div>
+            <div style="text-align:left;height: 30px;">
+              <span style="color: #000;margin-right: 12px;">{{feetCountry}}</span><span style="color: #999;">国家</span>
+              <span style="color: #000;margin:0 12px 0 25px;">{{feetCity}}</span><span style="color: #999;">城市</span>
+            </div>
           </div>
         </div>
       </router-link>
+      <div class="other-feet">
+        <span class="icon" style="background-image:url(/static/img/person/svg/other-des.svg)"></span>
+        <div class="info">
+          <div style="text-align:left;height:30px;color: #d4237a;">Ta收藏的目的地</div>
+          <div style="text-align:left;height: 30px;">
+            <span style="color: #000;margin-right: 12px;">{{saveCountry}}</span><span style="color: #999;">国家</span>
+            <span style="color: #000;margin:0 12px 0 25px;">{{saveCity}}</span><span style="color: #999;">城市</span>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="nav-answer">
       <nav-strip v-for="i in answers" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>
@@ -26,7 +36,10 @@
   export default {
     data () {
       return {
-
+        feetCountry: 11,
+        feetCity: 26,
+        saveCountry: 20,
+        saveCity: 30,
         answers: [
           {icon: '/static/img/person/svg/answer1.svg', info: 'Ta的帖子', icon_link: '/no-page'},
           {icon: '/static/img/person/svg/answer2.svg', info: 'Ta的问答', icon_link: '/no-page'},
@@ -62,7 +75,7 @@
         display: inline-block;
         text-align: left;
         vertical-align: middle;
-        padding-top:15px;
+        padding-top: 15px;
       }
     }
   }

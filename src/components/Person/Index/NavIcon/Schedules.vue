@@ -4,32 +4,53 @@
       <div slot="left" class="back"></div>
       <div slot="middle" style="color: white">我的行程</div>
     </nav-header>
-
-
+    <template v-for="info in schedulesList">
+      <list-schedule :info="info"></list-schedule>
+    </template>
     <div class="nav-bottom">
       <router-link to="/person/schedules/create-schedule" style="text-decoration: none">
-        <img style="width: 20px;vertical-align: middle;" src="/static/img/person/svg/add.svg"><span style="color: white">创建行程</span>
+        <img style="width: 20px;vertical-align: middle;" src="/static/img/person/svg/add.svg"><span
+        style="color: white">创建行程</span>
       </router-link>
     </div>
   </div>
 </template>
 <script>
   import NavHeader from '../../Comment/NavHeader.vue'
+  import ListSchedule from './Schedule/ListSchedule.vue'
 
   export default {
     data () {
-      return {}
+      return {
+        schedulesList: [
+          {
+            img: '/static/images/content1.jpg',
+            startPlace: '沈阳',
+            desPlace: '北京',
+            startTime: '2017-07-30',
+            untilDays: 7
+          },
+          {
+            img: '/static/images/content2.jpg',
+            startPlace: '北京',
+            desPlace: '沈阳',
+            startTime: '2017-08-30',
+            untilDays: 4
+          }
+        ]
+      }
     },
     props: {},
     components: {
-      NavHeader
+      NavHeader,
+      ListSchedule
     },
     methods: {}
   }
 </script>
 <style lang="less">
-  @nav-color:#f5f5f5;
-  @back-color:#11bf79;
+  @nav-color: #f5f5f5;
+  @back-color: #11bf79;
   body {
     margin: 0;
     padding: 0;
