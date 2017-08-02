@@ -2,9 +2,10 @@
   <div class="city">
     <city-banner :imgs="bannerImgs"></city-banner>
     <city-travels :desName="city.name" :travelsNum="city.travelsNum"></city-travels>
-    <city-fun-cion></city-fun-cion>
-    <div class="city-map">
-      <div class="city-name">{{city.name}}地图</div>
+    <city-fun-ion></city-fun-ion>
+    <city-map :cityName="city.name"></city-map>
+    <div class="city-top">
+
     </div>
     <des-bottom isWant="true"></des-bottom>
   </div>
@@ -13,9 +14,10 @@
   import CityBanner from '../common/Banner.vue'
   import DesBottom from './DesBottom.vue'
   import CityTravels from './DesTravels.vue'
-  import CityFunCion from './CityFunIcon.vue'
+  import CityFunIon from './CityFunIcon.vue'
+  import CityMap from './CityMap.vue'
   export default {
-    components: {CityBanner, DesBottom, CityTravels, CityFunCion},
+    components: {CityBanner, DesBottom, CityTravels, CityFunIon, CityMap},
     data () {
       return {
         bannerImgs: [
@@ -112,20 +114,5 @@
   }
 </script>
 <style>
-  .city-map{
-    background: url("/static/images/des/map.png");
-    height: 100px;
-    position: relative;
-    color: #11BF79;
-  }
-  .city-map .city-name {
-    background-color: white;
-    position: absolute;
-    top: 40px;
-    left: 35%;
-    padding: 3px 15px;
-    height: 20px;
-    border-radius: 20px;
-    border:1.3px #11BF79 solid;
-  }
+
 </style>

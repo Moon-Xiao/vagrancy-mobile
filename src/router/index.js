@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import Container from '../components/Container.vue'
 import Home from '../components/Home.vue'
 import Destination from '../components/Destinations.vue'
-
+import Country from '../components/des/Country.vue'
+import City from '../components/des/City.vue'
 import Person from '../components/Person/Person.vue'
 import Register from '../components/Person/Register.vue'
 import Login from '../components/Person/Login.vue'
@@ -106,6 +107,14 @@ export default new Router({
     {
       path: '/person/other',
       component: Other
+    },
+    {
+      path: '/person/travels',
+      component: Travels
+    },
+    {
+      path: '/city',
+      component: City
     }
   ]
 })
