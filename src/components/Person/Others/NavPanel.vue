@@ -3,8 +3,17 @@
     <div style="margin: 10px auto">
       <router-link to="/person/feet">
         <img src="/static/img/person/img/earth.jpg" width="100%"/>
+        <div class="other-feet">
+          <span class="icon" style="background-image:url(/static/img/person/svg/feet1.svg)"></span>
+          <div class="info">
+              <div style="text-align:left;height:30px;color: blue;">Ta的足迹</div>
+              <div style="text-align:left;height: 30px;">
+                <span style="color: #000;margin-right: 12px;">11</span><span style="color: #999;">国家</span>
+                <span style="color: #000;margin:0 12px 0 25px;">11</span><span style="color: #999;">城市</span>
+              </div>
+          </div>
+        </div>
       </router-link>
-      <nav-strip :info="`Ta的足迹`" :icon="`/static/img/person/svg/feet1.svg`" :link="`/person/feet`"></nav-strip>
     </div>
     <div class="nav-answer">
       <nav-strip v-for="i in answers" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>
@@ -13,6 +22,7 @@
 </template>
 <script>
   import NavStrip from './NavStrip.vue'
+
   export default {
     data () {
       return {
@@ -30,7 +40,30 @@
   }
 </script>
 <style lang="less">
+  @height: 80px;
   #nav-panel {
     width: 100%;
+    .other-feet {
+      height: @height;
+      background-color: white;
+      > .icon {
+        display: inline-block;
+        height: @height;
+        text-align: center;
+        width: @height;
+        vertical-align: top;
+        background-size: 50% 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      > .info {
+        color: #717171;
+        height: @height;
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+        padding-top:15px;
+      }
+    }
   }
 </style>

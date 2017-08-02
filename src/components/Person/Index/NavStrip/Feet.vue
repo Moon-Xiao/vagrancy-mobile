@@ -2,7 +2,7 @@
   <div id="feet">
     <nav-header class="header-style">
       <div slot="left" class="back"></div>
-      <div slot="middle" style="color: white">足迹</div>
+      <div slot="middle" style="color: white">{{navTitle}}</div>
     </nav-header>
     <div class="feet-nav">
       <div class="feet-item" v-for="(place, index) in placeList">
@@ -21,7 +21,7 @@
                   <span>{{item.subName}}</span>
                 </div>
                 <div class="card-info">
-                  <span>{{item.info}}</span>
+                  <span>{{item.info}}个去过的目的地</span>
                 </div>
               </div>
             </div>
@@ -37,35 +37,55 @@
   export default {
     data () {
       return {
+        navTitle: '我的足迹',
         isShow: [],
         placeList: [
           {
             title: '中国',
             imgList: [
-              {name: '测试', subName: 'test', img: '/static/images/content1.jpg', info: '1个去过的目的地'}
+              {name: '台北', subName: 'Taipei', img: '/static/images/content1.jpg', info: '1'},
+              {name: '垦丁', subName: 'Kenting', img: '/static/images/content2.jpg', info: '5'},
+              {name: '北京', subName: 'Beijing', img: '/static/images/content3.jpg', info: '1'},
+              {name: '上海', subName: 'Shanghai', img: '/static/images/content4.jpg', info: '8'},
+              {name: '南京', subName: 'Nanjing', img: '/static/images/content5.jpg', info: '1'},
+              {name: '武汉', subName: 'Wuhan', img: '/static/images/content6.jpg', info: '2'}
             ]
           },
           {
             title: '美国',
             imgList: [
-              {name: '测试', subName: 'test', img: '/static/images/content2.jpg', info: '1个去过的目的地'},
-              {name: '测试', subName: 'test', img: '/static/images/content3.jpg', info: '1个去过的目的地'}
+              {name: '纽约', subName: 'New York', img: '/static/images/content5.jpg', info: '2'},
+              {name: '波士顿', subName: 'b', img: '/static/images/content6.jpg', info: '1'},
+              {name: '测试', subName: 'test', img: '/static/images/content7.jpg', info: '1'},
+              {name: '测试', subName: 'test', img: '/static/images/content8.jpg', info: '1'},
+              {name: '测试', subName: 'test', img: '/static/images/content9.jpg', info: '1'}
             ]
           },
           {
             title: '韩国',
             imgList: [
-              {name: '测试', subName: 'test', img: '/static/images/content4.jpg', info: '1个去过的目的地'},
-              {name: '测试', subName: 'test', img: '/static/images/content5.jpg', info: '1个去过的目的地'},
-              {name: '测试', subName: 'test', img: '/static/images/content6.jpg', info: '1个去过的目的地'}
+              {name: '测试', subName: 'test', img: '/static/images/content10.jpg', info: '4'},
+              {name: '测试', subName: 'test', img: '/static/images/content11.jpg', info: '5'},
+              {name: '测试', subName: 'test', img: '/static/images/content12.jpg', info: '2'},
+              {name: '测试', subName: 'test', img: '/static/images/content13.jpg', info: '2'},
+              {name: '测试', subName: 'test', img: '/static/images/content14.jpg', info: '2'},
+              {name: '测试', subName: 'test', img: '/static/images/content15.jpg', info: '2'}
             ]
           }
         ]
       }
     },
+    mounted: function () {
+      this.showFirst()
+      // Ta的足迹
+    },
     props: {},
     components: {NavHeader},
     methods: {
+      showFirst: function () {
+        document.getElementsByClassName('item-body')[0].style.display = 'block'
+        document.getElementsByClassName('item-btn')[0].innerHTML = '收起 &and;'
+      },
       feetItemToggle: function (index) {
         this.isShow[index] = !this.isShow[index]
         if (this.isShow[index]) {
@@ -97,6 +117,7 @@
       z-index: 1;
     }
     .feet-nav {
+      background-color: white;
       .feet-item {
         clear: both;
         padding: 0 10px;
@@ -118,7 +139,7 @@
               float: left;
               width: 50%;
               .card-content {
-                margin: 20px 15px;
+                margin: 12px;
                 border-radius: 3px;
                 box-shadow: 0 0 2px 2px #eeeeee;
                 .card-img {

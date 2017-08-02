@@ -1,15 +1,17 @@
 <template>
-  <div class="nav-header">
-    <div class="header-left" @click="$router.back()">
-      <slot name="left"></slot>
+  <div style="height: 0; margin-top: 60px; width: 100%">
+    <div class="nav-header">
+      <div class="header-left" @click="$router.back()">
+        <slot name="left"></slot>
+      </div>
+      <div class="header-middle">
+        <slot name="middle"></slot>
+      </div>
+      <div class="header-right">
+        <slot name="right"></slot>
+      </div>
+      <div style="clear: both"></div>
     </div>
-    <div class="header-middle">
-      <slot name="middle"></slot>
-    </div>
-    <div class="header-right">
-      <slot name="right"></slot>
-    </div>
-    <div style="clear: both"></div>
   </div>
 </template>
 <script>
@@ -23,11 +25,15 @@
   }
 </script>
 <style lang="less">
-  @height: 70px;
+  @height: 60px;
   .nav-header {
     width: 100%;
     height: @height;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    background: inherit;
     > .header-left {
       height: 100%;
       line-height: @height;

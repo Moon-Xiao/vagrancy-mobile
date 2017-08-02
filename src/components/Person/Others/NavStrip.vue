@@ -1,7 +1,6 @@
 <template>
   <div class="strip">
     <router-link :to="link">
-      <!--<span class="icon"><div><embed align="center" :src="icon" type="image/svg+xml"/></div></span>-->
       <span class="icon" :style="'background-image:url('+icon+')'"></span>
       <span class="info">{{info}}</span>
     </router-link>

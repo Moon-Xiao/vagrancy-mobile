@@ -27,7 +27,7 @@
   export default {
     data () {
       return {
-        loginTip: '手机号登录',
+        loginTip: '邮箱/用户名登录',
         tips: ['手机号登录', '邮箱/用户名登录'],
         marginLeft: 0,
         speed: 1,
