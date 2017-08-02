@@ -15,24 +15,24 @@
         </router-link>
       </template>
     </nav-header>
-    <template v-if="!isLogin">
+    <template v-if="!logged">
       <top-panel></top-panel>
     </template>
-    <template v-else="isLogin">
+    <template v-else="logged">
       <logined-panel :isSignShow="true"></logined-panel>
     </template>
     <template>
       <div class="icons">
-        <nav-icon v-for="i in icons" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-icon>
+        <nav-icon v-for="i in icons" :info="i.info" :icon="i.icon" :link="logged?i.icon_link:''"></nav-icon>
       </div>
       <div class="nav-discount">
-        <nav-strip v-for="i in discounts" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>
+        <nav-strip v-for="i in discounts" :info="i.info" :icon="i.icon" :link="logged?i.icon_link:''"></nav-strip>
       </div>
       <div class="nav-feet">
-        <nav-strip v-for="i in feet" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>
+        <nav-strip v-for="i in feet" :info="i.info" :icon="i.icon" :link="logged?i.icon_link:''"></nav-strip>
       </div>
       <div class="nav-answer">
-        <nav-strip v-for="i in answers" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>
+        <nav-strip v-for="i in answers" :info="i.info" :icon="i.icon" :link="logged?i.icon_link:''"></nav-strip>
       </div>
     </template>
   </div>

@@ -5,18 +5,18 @@
       <div slot="middle" style="color: white">编辑个人信息</div>
     </nav-header>
     <form class="info-table">
-      <div class="info-img" title="点我更换头像">
+      <div class="info-img" :style="`background-image: url('${img}')`" title="点我更换头像">
         <input style="width: 100%;height: 100%;opacity: 0" @change="addFile" type="file"
                accept="image/jpeg, image/png, image/gif"/>
       </div>
       <div class="input-lists">
-        <input type="text" placeholder="修改用户名"/>
-        <input type="text" placeholder="修改住址"/>
-        <input type="text" placeholder="修改手机号"/>
-        <input type="text" placeholder="修改个性签名"/>
+        <input type="text" v-model="nickname" placeholder="修改用户名"/>
+        <input type="text" v-model="address" placeholder="修改住址"/>
+        <input type="text" v-model="phone" placeholder="修改手机号"/>
+        <input type="text" v-model="intro" placeholder="修改个性签名"/>
       </div>
       <div class="form-submit">
-        <button type="submit" class="submit-btn">保存修改</button>
+        <button type="button" @click="updateUserInfo" class="submit-btn">保存修改</button>
       </div>
     </form>
   </div>
@@ -28,7 +28,12 @@
     data () {
       return {
         imageType: /image.*/,
-        img: ''
+
+        nickname: '',
+        address: '',
+        phone: '',
+        intro: '',
+        avatar: null
       }
     },
     props: {},
@@ -37,8 +42,8 @@
     },
     methods: {
       addFile: function (e) {
-        this.img = e.srcElement.files[0]
-        if (this.img.type.match(this.imageType)) {
+        this.avatar = e.srcElement.files[0]
+        if (this.avatar.type.match(this.imageType)) {
           let reader = new FileReader()
           reader.onload = (function (aDiv) {
             return function (e) {
@@ -46,15 +51,35 @@
               aDiv.css('background-size', 'cover')
             }
           })(window.$('#photo-img'))
-          reader.readAsDataURL(this.img)
+          reader.readAsDataURL(this.avatar)
         }
+      },
+      async updateUserInfo () {
+        try {
+          const {nickname, address, phone, intro, avatar} = this
+          let info = {}
+          if (nickname) info.nickname = nickname
+          if (address) info.address = address
+          if (phone) info.phone = phone
+          if (intro) info.intro = intro
+          if (avatar) info.avatar = avatar
+          await this.updateInfo(info)
+          window.alert('保存成功！')
+        } catch (error) {
+          window.alert(`保存修改失败：${error.toLocaleString()}`)
+        }
+      }
+    },
+    computed: {
+      img () {
+        return this.userInfo.avatar ? this.baseUrl + this.userInfo.avatar.path : '/static/img/person/img/person.jpeg'
       }
     }
   }
 </script>
 <style lang="less">
-  @back-color:#11bf79;
-  @nav-color:#f5f5f5;
+  @back-color: #11bf79;
+  @nav-color: #f5f5f5;
   body {
     margin: 0;
     padding: 0;

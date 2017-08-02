@@ -115,6 +115,10 @@ export default new Router({
     {
       path: '/city',
       component: City
+    },
+    {
+      path: '/country',
+      component: Country
     }
   ]
 })

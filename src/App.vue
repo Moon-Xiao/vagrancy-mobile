@@ -18,19 +18,8 @@
   export default {
     components: {Home, Destination, Country, City, CommunityList},
     name: 'app',
-    data () {
-      return {
-        left: false,
-        right: false
-      }
-    },
-    methods: {
-      tap (e) {
-        console.log(e)
-      },
-      press (e) {
-        console.log(e)
-      }
+    created () {
+      this.$store.dispatch('init')
     }
   }
 </script>
