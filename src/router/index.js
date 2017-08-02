@@ -3,8 +3,10 @@ import Router from 'vue-router'
 import Container from '../components/Container.vue'
 import Home from '../components/Home.vue'
 import Destination from '../components/Destinations.vue'
-import Country from '../components/des/Country.vue'
-import City from '../components/des/City.vue'
+import Country from '../components/des/Country/Country.vue'
+import City from '../components/des/City/City.vue'
+import Scenic from '../components/des/Scenic/Scenic.vue'
+import ScenicDetail from '../components/des/Scenic/ScDetail.vue'
 import Person from '../components/Person/Person.vue'
 import Register from '../components/Person/Register.vue'
 import Login from '../components/Person/Login.vue'
@@ -86,6 +88,14 @@ export default new Router({
     {
       path: '/city',
       component: City
+    },
+    {
+      path: '/scenic',
+      component: Scenic
+    },
+    {
+      path: '/detail',
+      component: ScenicDetail
     }
   ]
 })

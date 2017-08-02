@@ -10,13 +10,7 @@
 
 </template>
 <script>
-  import Home from '../src/components/Home.vue'
-  import Destination from './components/Destinations.vue'
-  import Country from './components/des/Country.vue'
-  import City from './components/des/City.vue'
-  import CommunityList from './components/community/CommunityList.vue'
   export default {
-    components: {Home, Destination, Country, City, CommunityList},
     name: 'app',
     data () {
       return {
@@ -34,7 +28,6 @@
     }
   }
 </script>
-
 <style>
   #app {
     background-color: #F5F5F5;
@@ -46,5 +39,12 @@
   #app ul {
     padding: 0;
     margin: 0;
+  }
+
+  :focus{
+    outline: none
+  }
+  #app a{
+    text-decoration: none;
   }
 </style>

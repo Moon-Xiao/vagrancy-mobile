@@ -16,18 +16,25 @@
         </a>
       </div>
     </div>
-    <div><img src="/static/images/des/temp/temp1.png" style="width: 100%"/></div>
+    <city-tab :cityName="country.name"></city-tab>
+    <title-more title="特价机票">
+      <city-plane slot="content"></city-plane>
+    </title-more>
+    <title-more title="团游">
+      <city-plane slot="content"></city-plane>
+    </title-more>
     <country-bottom isWant="true"></country-bottom>
   </div>
 </template>
 <script>
-  import CountryBanner from '../common/Banner.vue'
-  import DesTravels from './DesTravels.vue'
+  import CountryBanner from '../../common/Banner.vue'
+  import DesTravels from '../DesInfoTravels.vue'
   import FunIcon from './CountryFunIcon.vue'
-  import CountryBottom from './DesBottom.vue'
-
+  import CountryBottom from '../DesBottom.vue'
+  import TitleMore from '../TitleMore.vue'
+  import CityPlane from '../../StoreApp/scrollerItems.vue'
   export default {
-    components: {CountryBanner, DesTravels, FunIcon, CountryBottom},
+    components: {CountryBanner, DesTravels, FunIcon, CountryBottom, TitleMore, CityPlane},
     data () {
       return {
         bannerImgs: [

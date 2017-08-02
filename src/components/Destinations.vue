@@ -77,15 +77,18 @@
     margin: 0 5% 3% 0;
     position: relative;
   }
+
   .des-tag .hot-country a {
     display: inline-table;
     width: 45%;
     margin: 0 5% 3% 0;
     position: relative;
   }
-  .hot-country img{
+
+  .hot-country img {
     width: 45%;
   }
+
   .hot-city a img {
     position: absolute;
     width: 100%;
@@ -106,7 +109,7 @@
     color: white;
   }
 
-  .hot-country .country-name{
+  .hot-country .country-name {
     float: right;
     width: 50%;
     font-size: 12px;

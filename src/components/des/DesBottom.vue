@@ -1,9 +1,11 @@
 <template>
-  <div class="des-bottom">
-    <span v-if="isWant" class="want">添加到我想去</span>
-    <div v-else class="want">从想去中移除</div>
-    <span class="partner">结伴</span>
-    <span class="qa">问答</span>
+  <div style="margin-top: 50px">
+    <div class="des-bottom">
+      <span v-if="isWant" class="want">添加到我想去</span>
+      <div v-else class="want">从想去中移除</div>
+      <span class="partner">结伴</span>
+      <span class="qa">问答</span>
+    </div>
   </div>
 </template>
 <script>
