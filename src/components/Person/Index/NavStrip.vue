@@ -1,9 +1,11 @@
 <template>
   <div class="strip">
-    <!--<span class="icon"><div><embed align="center" :src="icon" type="image/svg+xml"/></div></span>-->
-    <span class="icon" :style="'background-image:url('+icon+')'"></span>
-    <span class="info">{{info}}</span>
-    <span class="detail">&gt</span>
+    <router-link :to="link">
+      <!--<span class="icon"><div><embed align="center" :src="icon" type="image/svg+xml"/></div></span>-->
+      <span class="icon" :style="'background-image:url('+icon+')'"></span>
+      <span class="info">{{info}}</span>
+      <span class="detail">&gt</span>
+    </router-link>
   </div>
 </template>
 <script>
@@ -13,7 +15,8 @@
     },
     props: {
       icon: String,
-      info: String
+      info: String,
+      link: String
     },
     components: {},
     methods: {}
@@ -22,10 +25,24 @@
 <style lang="less">
   @height: 50px;
   .strip {
-    position: relative;
     height: @height;
     background-color: white;
-    > .icon {
+    a {
+      position: relative;
+      display: block;
+      .detail {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 100%;
+        line-height: @height;
+        text-align: center;
+        color: #ced1d5;
+        font-size: 22px;
+      }
+    }
+    .icon {
       display: inline-block;
       height: @height;
       text-align: center;
@@ -35,24 +52,13 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-    > .info {
+    .info {
       color: #717171;
       height: @height;
       display: inline-block;
       line-height: @height;
       text-align: center;
       vertical-align: top;
-    }
-    > .detail {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50px;
-      height: 100%;
-      line-height: @height;
-      text-align: center;
-      color: #ced1d5;
-      font-size: 22px;
     }
   }
 </style>

@@ -5,9 +5,13 @@
       <div slot="middle" style="color: white">签到领取里程碑</div>
     </nav-header>
     <div class="nav">
-      <div class="nav-top">
-
-      </div>
+      <form class="nav-form">
+        <p class="p-num">{{signNum}}</p>
+        <p class="p-text">可用里程</p>
+        <button type="submit" @click="addSignNum()">
+          今日可领取1里程
+        </button>
+      </form>
       <img src="/static/img/person/img/sign-ad.png" style="width: 100%">
       <img src="/static/img/person/img/sign-exchange.png" style="width: 100%">
       <img src="/static/img/person/img/sign-ad-show.png" style="width: 100%">
@@ -24,11 +28,17 @@
 
   export default {
     data () {
-      return {}
+      return {
+        signNum: 5
+      }
     },
     props: {},
     components: {NavHeader},
-    methods: {}
+    methods: {
+      addSignNum: function () {
+        this.signNum += 1
+      }
+    }
   }
 </script>
 <style lang="less">
@@ -56,7 +66,35 @@
       }
     }
     > .nav {
-
+      > .nav-form {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        > .p-num {
+          color: white;
+          font-size: 32px;
+          margin: 20px 0 0 0;
+          padding: 10px;
+          font-weight: 300;
+        }
+        > .p-text {
+          color: #798bff;
+          margin: 0;
+          padding: 0 10px 20px 10px;
+        }
+        > button {
+          background-color: @btn-color;
+          color: #555;
+          padding: 10px;
+          width: 70%;
+          text-align: center;
+          border: none;
+          margin-bottom: 15px;
+          border-radius: 3px;
+        }
+      }
       > .nav-bottom {
         padding: 20px 30px;
         p {

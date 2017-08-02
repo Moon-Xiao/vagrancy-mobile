@@ -3,12 +3,13 @@
     <form class="login-form">
       <div class="login-info" :style="'margin-left:'+marginLeft+'px'">
         <div class="input-lists">
-          <input type="text" placeholder="输入邮箱/用户名"/>
-          <input type="password" placeholder="输入密码"/>
+          <input type="text" v-model="user" placeholder="输入邮箱/用户名"/>
+          <input type="password" v-model="pass" placeholder="输入密码"/>
         </div>
         <div class="input-lists">
           <div class="input-phone">
-            <span style="display: inline-block;color: white;">+86<span style="color: white">&blacktriangledown;</span></span>
+            <span style="display: inline-block;color: white;">+86<span
+              style="color: white">&blacktriangledown;</span></span>
             <input type="text" placeholder="输入手机"/>
           </div>
           <input type="password" placeholder="输入密码"/>
@@ -16,7 +17,7 @@
       </div>
       <a class="forget-pass" href="#"><p>忘记密码？</p></a>
       <div class="form-submit">
-        <button type="submit">登录</button>
+        <button type="button" @click="performLogin">登录</button>
         <p @click="changeMethod()">{{loginTip}}</p>
       </div>
 
@@ -24,10 +25,12 @@
   </div>
 </template>
 <script>
+  import api from '../../../api'
+
   export default {
     data () {
       return {
-        loginTip: '手机号登录',
+        loginTip: '邮箱/用户名登录',
         tips: ['手机号登录', '邮箱/用户名登录'],
         marginLeft: 0,
         speed: 1,
@@ -55,12 +58,29 @@
             clearInterval(this.timer)
           }
         }, 10)
+      },
+      async performLogin () {
+        try {
+          await api.loginUser({
+            type: 'User',
+            data: {
+              grant_type: 'password',
+              nickname: this.user,
+              password: this.pass
+            }
+          })
+          window.alert(`登录成功`)
+          this.$router.back()
+        } catch (error) {
+          window.alert(`登录失败:${error.toLocaleString()}`)
+        }
       }
+
     }
   }
 </script>
 <style lang="less">
-  @back-color:#11bf79;
+  @back-color: #11bf79;
   .login-form {
     a {
       text-decoration: none;

@@ -37,6 +37,7 @@
 
   #schedules {
     background-color: @nav-color;
+    min-height: 620px;
     width: 100%;
     .header-style {
       background-color: @back-color;

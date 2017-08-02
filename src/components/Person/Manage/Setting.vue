@@ -2,13 +2,12 @@
   <div id="setting">
     <nav-header class="header-style">
       <div slot="left" class="back"></div>
-      <div slot="middle" style="color: white">设置
-      </div>
+      <div slot="middle" style="color: white">设置</div>
     </nav-header>
     <div>
       <h4>个人设置</h4>
       <div class="nav-back">
-        <router-link to="/person/edit-info">
+        <router-link :to="logged ? '/person/edit-info' : ''">
           <nav-strip class="strip-style">
             <div slot="left" class="icon-style" style="background-image: url('/static/img/person/svg/p1.svg')"></div>
             <div slot="middle" class="middle-style"><span style="color: #333">账号密码</span></div>
@@ -43,7 +42,6 @@
   export default {
     data () {
       return {
-        img: '/static/img/person/img/person.jpeg',
         personSetting: [
           {icon: '/static/img/person/svg/p2.svg', info: '个人信息'},
           {icon: '/static/img/person/svg/p3.svg', info: '常用信息'},
@@ -64,7 +62,12 @@
       NavStrip,
       NavHeader
     },
-    methods: {}
+    methods: {},
+    computed: {
+      img () {
+        return this.userInfo.avatar ? this.baseUrl + this.userInfo.avatar.path : '/static/img/person/img/person.jpeg'
+      }
+    }
   }
 </script>
 <style lang="less">
