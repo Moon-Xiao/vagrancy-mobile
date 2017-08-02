@@ -26,7 +26,6 @@
       </router-link>
     </div>
   </div>
-
 </template>
 <script>
 </script>

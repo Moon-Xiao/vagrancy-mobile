@@ -1,23 +1,23 @@
 <template>
-  <div class="city-map">
-    <div class="city-name">{{cityName}}地图</div>
+  <div class="des-map">
+    <div class="content">{{content}}</div>
   </div>
 </template>
 <script>
   export default {
     props: {
-      cityName: String
+      content: String
     }
   }
 </script>
-<style>
-  .city-map{
+<style scoped>
+  .des-map{
     background: url("/static/images/des/map.png");
     height: 95px;
     position: relative;
     color: #11BF79;
   }
-  .city-map .city-name {
+  .des-map .content {
     background-color: white;
     position: absolute;
     top: 40%;

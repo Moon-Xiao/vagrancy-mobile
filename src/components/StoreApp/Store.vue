@@ -44,6 +44,7 @@
   .store-container {
     background-color: #F5F5F5;
     overflow: hidden;
+    margin-bottom: 60px;
   }
 
   .hot-sight-top {
