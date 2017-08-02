@@ -43,12 +43,7 @@
     data () {
       return {
         backImg: '/static/img/person/img/backImg.png',
-        img: '/static/img/person/img/person.jpeg',
-        name: 'moon_xiao',
-        sex: '/static/img/person/svg/male.svg',
-        fans: 0,
-        attentions: 0,
-        signature: '啦啦啦~浪起来'
+        fans: 0
       }
     },
     props: {
@@ -58,6 +53,23 @@
     methods: {
       concernTip: function () {
         alert('关注成功')
+      }
+    },
+    computed: {
+      img () {
+        return this.baseUrl + this.userInfo.avatar.path
+      },
+      name () {
+        return this.userInfo.nickname
+      },
+      sex () {
+        return this.userInfo.sex === '男' ? '/static/img/person/svg/male.svg' : '/static/img/person/svg/female.svg'
+      },
+      attentions () {
+        return this.userInfo.follow.length
+      },
+      signature () {
+        return this.userInfo.intro
       }
     }
   }
