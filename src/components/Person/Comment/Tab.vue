@@ -129,7 +129,6 @@
         flex: 1;
         padding: 8px 0;
         text-align: center;
-        /*border: 1px solid #eee;*/
         color: #717171;
       }
       > .active {
@@ -147,6 +146,7 @@
       display: flex;
       flex-direction: row;
       overflow: hidden;
+      background-color: white;
       .nav-slot {
         flex: 1;
       }

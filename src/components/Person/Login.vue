@@ -4,11 +4,13 @@
       <div slot="left" class="back"></div>
       <div slot="middle" style="color: white">账号密码</div>
       <div slot="right">
-        <button class="register-btn">注册</button>
+        <router-link to="register">
+          <button class="register-btn">注册</button>
+        </router-link>
       </div>
     </nav-header>
     <login-table style="margin-top: 60px"></login-table>
-    <login-bottom style="position: fixed;bottom: 6%"></login-bottom>
+    <login-bottom style="position: fixed;bottom: 12%"></login-bottom>
   </div>
 </template>
 <script>
@@ -38,6 +40,7 @@
   }
 
   #login {
+    background-color: @back-color;
     a {
       text-decoration: none;
     }
@@ -55,6 +58,7 @@
       border: 1px solid white;
       color: white;
       margin: auto 12px;
+      background-color: @back-color;
     }
   }
 </style>

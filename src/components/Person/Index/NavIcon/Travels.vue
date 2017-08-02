@@ -1,6 +1,6 @@
 <template>
-  <div>
-
+  <div id="travels">
+    travels
   </div>
 </template>
 <script>
@@ -14,5 +14,7 @@
   }
 </script>
 <style lang="less">
+  #travels {
 
+  }
 </style>

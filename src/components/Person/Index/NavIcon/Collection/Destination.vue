@@ -1,8 +1,10 @@
 <template>
-  <div id="coupon">
+  <div id="destination">
     <img src="/static/img/person/img/defaultCollection.png" style="width: 100%;">
     <div class="add-img">
-      <img src="/static/img/person/svg/collectionAdd.svg" style="width: 70px;">
+      <router-link to="#">
+        <img src="/static/img/person/svg/collectionAdd.svg" style="width: 70px;">
+      </router-link>
     </div>
   </div>
 </template>
@@ -17,11 +19,11 @@
   }
 </script>
 <style lang="less">
-  #coupon {
+  #destination {
     width: 100%;
     min-height: 600px;
     position: relative;
-    > .add-img {
+    >.add-img{
       position: absolute;
       bottom: 0;
       right: 3%;

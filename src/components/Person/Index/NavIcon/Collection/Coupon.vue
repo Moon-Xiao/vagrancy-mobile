@@ -1,10 +1,13 @@
 <template>
-  <div id="hotels">
-    <img src="/static/img/person/img/hotel.png" style="width: 100%;">
-    <img src="/static/img/person/img/hotelBack.png" style="width: 100%;">
+  <div id="coupon">
+    <img src="/static/img/person/img/defaultCollection.png" style="width: 100%;">
+
     <div class="add-img">
-      <img src="/static/img/person/svg/collectionAdd.svg" style="width: 70px;">
+      <router-link to="#">
+        <img src="/static/img/person/svg/collectionAdd.svg" style="width: 70px;">
+      </router-link>
     </div>
+
   </div>
 </template>
 <script>
@@ -18,7 +21,7 @@
   }
 </script>
 <style lang="less">
-  #hotels {
+  #coupon {
     width: 100%;
     min-height: 600px;
     position: relative;

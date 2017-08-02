@@ -16,7 +16,9 @@
       </div>
     </div>
     <div class="form-submit">
-      <button type="submit">下一步</button>
+      <router-link to="login">
+        <button type="submit">下一步</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -39,8 +41,8 @@
   body {
     background-color: @back-color;
   }
-
   #register {
+    background-color: @back-color;
     .back {
       width: 100%;
       height: 100%;
@@ -91,6 +93,7 @@
           border: 1px solid white;
           color: white;
           text-align: center;
+          background-color: @back-color;
         }
       }
     }
@@ -98,7 +101,7 @@
       width: 100%;
       text-align: center;
       margin-top: 120px;
-      > button {
+       button {
         padding: 10px 0;
         width: 50%;
         text-align: center;
