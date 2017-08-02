@@ -57,7 +57,7 @@
     },
     computed: {
       img () {
-        return this.baseUrl + this.userInfo.avatar.path
+        return this.userInfo.avatar ? this.baseUrl + this.userInfo.avatar.path : ''
       },
       name () {
         return this.userInfo.nickname
@@ -66,7 +66,7 @@
         return this.userInfo.sex === '男' ? '/static/img/person/svg/male.svg' : '/static/img/person/svg/female.svg'
       },
       attentions () {
-        return this.userInfo.follow.length
+        return this.userInfo.follow ? this.userInfo.follow.length : 0
       },
       signature () {
         return this.userInfo.intro
