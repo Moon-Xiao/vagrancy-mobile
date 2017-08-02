@@ -16,6 +16,7 @@
     padding-left: 50px;
     width: 100%;
     height: 42px;
+    min-height: 42px;
     line-height: 42px;
     border-radius: 4px;
     background: url(/static/images/icon/search.svg) 20px/20px 20px no-repeat #fff;
