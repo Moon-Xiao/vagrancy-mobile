@@ -12,7 +12,8 @@
       </div>
       <div class="all-country">
         <div v-for="(country,index) in countries" v-if="index===selectedContinent">
-          <div @click="selectedCountry=cindex" v-for="(icountry,cindex) in country" v-bind:class="['country',{active:cindex===selectedCountry}]">
+          <div @click="selectedCountry=cindex" v-for="(icountry,cindex) in country"
+               v-bind:class="['country',{active:cindex===selectedCountry}]">
             {{icountry.name}}
           </div>
         </div>
@@ -22,21 +23,63 @@
       <div class="distinct">
         <div class="distinct-item">全部商品</div>
       </div>
-      <div v-for="distinct in categories" class="distinct">
-        <div class="distinct-title"><p>{{distinct.title}}</p></div>
-        <div v-for="kind in distinct.kinds" class="distinct-item">{{kind.name}}</div>
+      <div class="distinct">
+        <div class="distinct-title"><p>{{categories[0].title}}</p></div>
+        <div @click="selectedType=index" v-for="(kind,index) in categories[0].kinds"
+             v-bind:class="['distinct-item',{activeChoice:index===selectedType}]">{{kind.name}}
+        </div>
+      </div>
+      <div class="distinct">
+        <div class="distinct-title"><p>{{categories[1].title}}</p></div>
+        <div @click="selecteOutside=index" v-for="(kind,index) in categories[1].kinds"
+             v-bind:class="['distinct-item',{activeChoice:index===selecteOutside}]">{{kind.name}}
+        </div>
+      </div>
+      <div class="distinct">
+        <div class="distinct-title"><p>{{categories[2].title}}</p></div>
+        <div @click="selecteLocal=index" v-for="(kind,index) in categories[2].kinds"
+             v-bind:class="['distinct-item',{activeChoice:index===selecteLocal}]">{{kind.name}}
+        </div>
+      </div>
+      <div class="distinct">
+        <div class="distinct-title"><p>{{categories[3].title}}</p></div>
+        <div @click="selecteDepth=index" v-for="(kind,index) in categories[3].kinds"
+             v-bind:class="['distinct-item',{activeChoice:index===selecteDepth}]">{{kind.name}}
+        </div>
       </div>
     </div>
     <div v-if="selected===3" class="more-choice-div">
-      <div v-for="distinct in moreChoices" class="distinct">
-        <div class="distinct-title"><p>{{distinct.title}}</p></div>
-        <div v-for="kind in distinct.kinds" class="distinct-item">{{kind.name}}</div>
+      <div class="distinct">
+        <div class="distinct-title"><p>{{moreChoices[0].title}}</p></div>
+        <div @click="selectedDestination=index" v-for="(kind,index) in moreChoices[0].kinds"
+             v-bind:class="['distinct-item',{activeChoice:index===selectedDestination}]">{{kind.name}}
+        </div>
+      </div>
+      <div class="distinct">
+        <div class="distinct-title"><p>{{moreChoices[1].title}}</p></div>
+        <div @click="selectedDate=index" v-for="(kind,index) in moreChoices[1].kinds"
+             v-bind:class="['distinct-item',{activeChoice:index===selectedDate}]">{{kind.name}}</div>
+      </div>
+      <div class="distinct">
+        <div class="distinct-title"><p>{{moreChoices[2].title}}</p></div>
+        <div @click="selectedClassify=index" v-for="(kind,index) in moreChoices[2].kinds"
+             v-bind:class="['distinct-item',{activeChoice:index===selectedClassify}]">{{kind.name}}</div>
+      </div>
+      <div class="distinct">
+        <div class="distinct-title"><p>{{moreChoices[3].title}}</p></div>
+        <div @click="selectedSale=index" v-for="(kind,index) in moreChoices[3].kinds"
+             v-bind:class="['distinct-item',{activeChoice:index===selectedSale}]">{{kind.name}}</div>
+      </div>
+      <div class="distinct">
+        <div class="distinct-title"><p>{{moreChoices[4].title}}</p></div>
+        <div @click="selectedService=index" v-for="(kind,index) in moreChoices[4].kinds"
+             v-bind:class="['distinct-item',{activeChoice:index===selectedService}]">{{kind.name}}</div>
       </div>
     </div>
     <div v-if="selected===4" class="digital-sort-div">
-      <div class="sort-item active">智能排序</div>
-      <div class="sort-item">销量从高到低</div>
-      <div class="sort-item">价格从低到高</div>
+      <div @click="selectedSort=1" v-bind:class="['sort-item',{active:selectedSort===1}]">智能排序</div>
+      <div @click="selectedSort=2" v-bind:class="['sort-item',{active:selectedSort===2}]">销量从高到低</div>
+      <div @click="selectedSort=3" v-bind:class="['sort-item',{active:selectedSort===3}]">价格从低到高</div>
     </div>
   </div>
 </template>
@@ -48,6 +91,16 @@
         selected: 0,
         selectedContinent: 0,
         selectedCountry: 0,
+        selectedSort: 1,
+        selectedType: 0,
+        selecteOutside: 0,
+        selecteLocal: 0,
+        selecteDepth: 0,
+        selectedDestination: 0,
+        selectedDate: 0,
+        selectedClassify: 0,
+        selectedSale: 0,
+        selectedService: 0,
         continents: [
           {
             name: '全部目的地'
@@ -259,16 +312,22 @@
 
 <style lang="less">
   .store-flight-nav-container {
-    height: 40px;
+    height: 39px;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     position: relative;
-    border-bottom: 1px solid rgb(240, 240, 240);
+    border-bottom: 1px solid rgb(200, 200, 200);
+    background-color: rgb(250,250,250);
 
     .active {
       color: #11BF79 !important;
+    }
+
+    .activeChoice {
+      color: #11BF79 !important;
+      border: solid 1px #11BF79 !important;
     }
 
     > .nav-item {
@@ -281,11 +340,12 @@
       height: 550px;
       width: 100%;
       position: absolute;
-      top: 75px;
+      top: 80px;
       left: 0;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      z-index: 10;
 
       > .all-continent {
         flex: 1;
@@ -299,6 +359,7 @@
           color: #555555;
           height: 25px;
           padding: 12px 0 10px 10px;
+          background-color: white;
           border-bottom: solid 1px rgb(200, 200, 200);
         }
       }
@@ -331,6 +392,7 @@
       flex-direction: column;
       justify-content: flex-start;
       background-color: #F5F5F5;
+      z-index: 10;
 
       > .distinct {
         width: 100%;
@@ -362,7 +424,6 @@
     }
 
     > .digital-sort-div {
-      height: 100px;
       width: 100%;
       position: absolute;
       top: 75px;
@@ -370,10 +431,12 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      z-index: 10;
+      background-color: white;
 
       > .sort-item {
         width: 100%;
-        height: 40px;
+        height: 23px;
         text-align: center;
         border-bottom: solid 1px rgb(200, 200, 200);
         padding: 10px;

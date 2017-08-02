@@ -24,10 +24,14 @@ import Feet from '../components/Person/Index/NavStrip/Feet.vue'
 import Other from '../components/Person/Others/Person.vue'
 
 import Store from '../components/StoreApp/Store.vue'
+import StoreFlight from '../components/StoreApp/StoreFlight.vue'
+import Product from '../components/StoreApp/ProductDetail.vue'
+import PayOrder from '../components/StoreApp/PayOrder.vue'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/app',
@@ -126,6 +130,22 @@ export default new Router({
     {
       path: '/detail',
       component: ScenicDetail
+    },
+    {
+      path: '/country',
+      component: Country
+    },
+    {
+      path: '/stores/flight',
+      component: StoreFlight
+    },
+    {
+      path: '/stores/product',
+      component: Product
+    },
+    {
+      path: '/stores/payorder',
+      component: PayOrder
     }
   ]
 })

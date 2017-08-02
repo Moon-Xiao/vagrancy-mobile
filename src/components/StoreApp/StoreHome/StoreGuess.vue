@@ -17,14 +17,12 @@
       </div>
     </div>
     <div class="guess-second-content">
-      <div v-for="line in 4" class="second-line">
-        <div v-for="item in 2" class="second-line-item">
-          <img src="/static/images/store_temp/jiangang.jpg"/>
-          <p class="sight-title">【暑期】上海往返马尔代夫Kandima坎迪</p>
-          <div class="sight-price">
-            <span class="sprice">12280</span>
-            <span class="sunit">元起</span>
-          </div>
+      <div v-for="item in guessSecondItems" class="second-line-item">
+        <img src="/static/images/store_temp/jiangang.jpg"/>
+        <p class="sight-title">{{item.title}}</p>
+        <div class="sight-price">
+          <span class="sprice">{{item.price}}</span>
+          <span class="sunit">元起</span>
         </div>
       </div>
     </div>
@@ -33,7 +31,7 @@
 
 <script>
   export default {
-    date () {
+    data () {
       return {
         guessFirstItems: [
           {
@@ -59,6 +57,48 @@
           {
             title: '北京/天津出发特价机票',
             price: '994'
+          }
+        ],
+        guessSecondItems: [
+          {
+            imgSrc: '/static/images/store_temp/jiangang.jpg',
+            title: '【暑期】上海往返马尔代夫Kandima坎迪',
+            price: '12280'
+          },
+          {
+            imgSrc: '/static/images/store_temp/jiangang.jpg',
+            title: '【暑期】上海往返马尔代夫Kandima坎迪',
+            price: '13280'
+          },
+          {
+            imgSrc: '/static/images/store_temp/jiangang.jpg',
+            title: '【暑期】上海往返马尔代夫Kandima坎迪',
+            price: '12280'
+          },
+          {
+            imgSrc: '/static/images/store_temp/jiangang.jpg',
+            title: '【暑期】上海往返马尔代夫Kandima坎迪',
+            price: '12280'
+          },
+          {
+            imgSrc: '/static/images/store_temp/jiangang.jpg',
+            title: '【暑期】上海往返马尔代夫Kandima坎迪',
+            price: '12280'
+          },
+          {
+            imgSrc: '/static/images/store_temp/jiangang.jpg',
+            title: '【暑期】上海往返马尔代夫Kandima坎迪',
+            price: '12280'
+          },
+          {
+            imgSrc: '/static/images/store_temp/jiangang.jpg',
+            title: '【暑期】上海往返马尔代夫Kandima坎迪',
+            price: '12280'
+          },
+          {
+            imgSrc: '/static/images/store_temp/jiangang.jpg',
+            title: '【暑期】上海往返马尔代夫Kandima坎迪',
+            price: '12280'
           }
         ]
       }
@@ -146,50 +186,52 @@
     }
 
     > .guess-second-content {
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+       background-color: white;
+       display: flex;
+       flex-direction: row;
+       justify-content: flex-start;
+       flex-wrap: wrap;
 
-      > .second-line {
-        flex: 1;
-        height: 200px;
-        margin-bottom: 5px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+       /*> .second-line {*/
+       /*flex: 1;*/
+       /*height: 200px;*/
+       /*margin-bottom: 5px;*/
+       /*display: flex;*/
+       /*flex-direction: row;*/
+       /*justify-content: space-around;*/
 
-        > .second-line-item{
-          flex: 1;
-          padding: 5px 10px 0 10px;
+       > .second-line-item {
+         width: 50%;
+         height: 200px;
+         margin-bottom: 5px;
+         padding: 5px 10px 0 10px;
 
-          > img{
-            width: 100%;
-          }
+         > img {
+           width: 100%;
+         }
 
-          > .sight-title{
-            color: #333333;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-          }
+         > .sight-title {
+           color: #333333;
+           overflow: hidden;
+           text-overflow: ellipsis;
+           display: -webkit-box;
+           -webkit-box-orient: vertical;
+           -webkit-line-clamp: 2;
+         }
 
-          > .sight-price > .sprice{
-            color: rgb(253,117,107);
-            font-size: 18px;
-          }
+         > .sight-price > .sprice {
+           color: rgb(253, 117, 107);
+           font-size: 18px;
+         }
 
-          > .sight-price > .sunit{
-            color: #777777;
-            font-size: 13px;
-          }
+         > .sight-price > .sunit {
+           color: #777777;
+           font-size: 13px;
+         }
+       }
 
-        }
-      }
+     }
 
-    }
   }
 </style>
 
