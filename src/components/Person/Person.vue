@@ -15,23 +15,26 @@
         </router-link>
       </template>
     </nav-header>
-    <!--<top-panel></top-panel>-->
-    <logined-panel></logined-panel>
-    <!--<template>-->
-    <!--<div class="icons">-->
-    <!--<nav-icon v-for="i in icons" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-icon>-->
-    <!--</div>-->
-    <!--<div class="nav-discount">-->
-    <!--<nav-strip v-for="i in discounts" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>-->
-    <!--</div>-->
-    <!--<div class="nav-feet">-->
-    <!--<nav-strip v-for="i in feet" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>-->
-    <!--</div>-->
-    <!--<div class="nav-answer">-->
-    <!--<nav-strip v-for="i in answers" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>-->
-    <!--</div>-->
-    <!--</template>-->
-    <nav-panel></nav-panel>
+    <template v-if="!isLogin">
+      <top-panel></top-panel>
+    </template>
+    <template v-else="isLogin">
+      <logined-panel :isSignShow="true"></logined-panel>
+    </template>
+    <template>
+      <div class="icons">
+        <nav-icon v-for="i in icons" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-icon>
+      </div>
+      <div class="nav-discount">
+        <nav-strip v-for="i in discounts" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>
+      </div>
+      <div class="nav-feet">
+        <nav-strip v-for="i in feet" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>
+      </div>
+      <div class="nav-answer">
+        <nav-strip v-for="i in answers" :info="i.info" :icon="i.icon" :link="i.icon_link"></nav-strip>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -42,10 +45,11 @@
   import NavIcon from './Index/NavIcon.vue'
   import NavStrip from './Index/NavStrip.vue'
   import NavPanel from './Others/NavPanel.vue'
-
+  // $router.back()
   export default {
     data () {
       return {
+        isLogin: false,
         icons: [
           {icon: '/static/img/person/svg/icon1.svg', info: '我的游记', icon_link: '/person/travels'},
           {icon: '/static/img/person/svg/icon2.svg', info: '我的收藏', icon_link: '/person/collection'},

@@ -1,6 +1,6 @@
 <template>
   <div id="unused">
-    <img src="/static/img/person/img/coupon-ad.jpg" style="width: 100%;">
+    <img src="/static/img/person/img/orders-ad.png" style="width: 100%;">
     <div class="nav-bottom">
       <router-link to="/person/schedules/create-schedule" style="text-decoration: none">
         <img style="width: 20px;vertical-align: middle;" src="/static/img/person/svg/add.svg"><span

@@ -1,6 +1,6 @@
 <template>
   <div id="used">
-    <img src="/static/img/person/img/coupon-ad.jpg" style="width: 100%;">
+    <img src="/static/img/person/img/coupon-ad.png" style="width: 100%;">
     <div class="nav-bottom">
       <router-link to="/person/schedules/create-schedule" style="text-decoration: none">
         <img style="width: 20px;vertical-align: middle;" src="/static/img/person/svg/add.svg"><span
@@ -23,6 +23,7 @@
   @back-color:#11bf79;
   #used {
     min-height: 550px;
+    background-color: rgb(238,238,238);
     > .nav-bottom {
       width: 100%;
       height: 50px;

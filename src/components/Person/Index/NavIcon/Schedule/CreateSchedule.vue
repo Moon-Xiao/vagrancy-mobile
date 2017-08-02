@@ -88,6 +88,7 @@
 
   #create-schedule {
     width: 100%;
+    background-color: white;
     .header-style {
       background-color: @back-color;
       z-index: 1;

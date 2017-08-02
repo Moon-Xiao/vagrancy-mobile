@@ -1,6 +1,6 @@
 <template>
   <div class="nav-header">
-    <div class="header-left">
+    <div class="header-left" @click="$router.back()">
       <slot name="left"></slot>
     </div>
     <div class="header-middle">

@@ -1,6 +1,6 @@
 <template>
   <div id="all-payments">
-    <img src="/static/img/person/img/allpayments-ad.jpg" style="width: 100%;">
+    <img src="/static/img/person/img/orders-ad.png" style="width: 100%;">
     <router-link to="" style="display: block;text-align: center;">
       <button class="look-btn">去逛逛</button>
     </router-link>

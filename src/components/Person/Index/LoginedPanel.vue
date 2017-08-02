@@ -20,20 +20,20 @@
       </div>
       <div class="info-nav-right">
 
-        <template>
+        <template v-if="isSignShow">
           <router-link to="/person/sign">
             <embed align="middle" src="/static/img/person/svg/sign.svg" width="30px"></embed>
             <span style="font-size: 12px;display: block;text-align: center;color: white">签到</span>
           </router-link>
         </template>
 
-        <!--<template>-->
-        <!--<div style="height: 22px; width: 56px;border:solid 1px #fff;border-radius: 1px;display: flex;justify-content: center;align-items: center">-->
-        <!--<embed src="/static/img/person/svg/attention.svg" height="16px"></embed>-->
-        <!--<span style="font-size: 12px;color: white">关注</span>-->
-        <!--</div>-->
-        <!--</template>-->
-
+        <template v-if="!isSignShow">
+          <div
+            style="height: 22px; width: 56px;border:solid 1px #fff;border-radius: 1px;display: flex;justify-content: center;align-items: center">
+            <embed src="/static/img/person/svg/attention.svg" height="16px"></embed>
+            <span style="font-size: 12px;color: white" @click="concernTip()">关注</span>
+          </div>
+        </template>
       </div>
     </div>
   </div>
@@ -51,9 +51,15 @@
         signature: '啦啦啦~浪起来'
       }
     },
-    props: {},
+    props: {
+      isSignShow: Boolean
+    },
     components: {},
-    methods: {}
+    methods: {
+      concernTip: function () {
+        alert('关注成功')
+      }
+    }
   }
 </script>
 <style lang="less">

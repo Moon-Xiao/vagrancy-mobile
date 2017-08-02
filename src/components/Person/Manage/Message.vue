@@ -1,5 +1,5 @@
 <template>
-  <div id="travels">
+  <div id="message">
     <nav-header class="header-style">
       <div slot="left" class="back"></div>
       <div slot="middle" style="color: white">消息</div>
@@ -31,8 +31,8 @@
     padding: 0;
   }
 
-  #travels {
-    background-color: @nav-color;
+  #message {
+    background-color: white;
     width: 100%;
     .header-style {
       background-color: @back-color;
