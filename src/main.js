@@ -9,7 +9,7 @@ import moment from 'moment'
 
 Vue.config.productionTip = false
 
-const baseURL = ''
+const baseURL = api.baseURL
 
 Vue.mixin({
   computed: {
