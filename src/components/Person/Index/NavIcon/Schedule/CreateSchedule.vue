@@ -166,6 +166,7 @@
         text-align: center;
         background-color: @back-color;
         color: white;
+        border: none;
         border-radius: 3px;
         margin-left: 5%;
       }

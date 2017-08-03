@@ -4,7 +4,7 @@
       <div slot="left" class="back"></div>
       <div slot="middle" style="color: white">设置</div>
     </nav-header>
-    <div>
+    <div style="clear: both;padding-top: 1px;">
       <h4>个人设置</h4>
       <div class="nav-back">
         <router-link :to="logged ? '/person/edit-info' : ''">
@@ -101,7 +101,7 @@
     }
     h4 {
       width: 96%;
-      margin: 20px auto;
+      margin: 15px auto;
       color: #aaa;
       font-weight: 300;
     }
