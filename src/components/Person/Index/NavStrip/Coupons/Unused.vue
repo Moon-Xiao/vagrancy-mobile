@@ -2,7 +2,7 @@
   <div id="unused">
     <img src="/static/img/person/img/orders-ad.png" style="width: 100%;">
     <div class="nav-bottom">
-      <router-link to="/person/schedules/create-schedule" style="text-decoration: none">
+      <router-link to="#" style="text-decoration: none">
         <img style="width: 20px;vertical-align: middle;" src="/static/img/person/svg/add.svg"><span
         style="color: white">添加优惠券</span>
       </router-link>

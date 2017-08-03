@@ -145,6 +145,7 @@
         background-color: white;
         color: @back-color;
         border-radius: 3px;
+        border: none;
       }
       > p {
         padding: 10px 20px;

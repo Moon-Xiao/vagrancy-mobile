@@ -39,6 +39,7 @@
   #my-travels {
     background-color: @nav-color;
     width: 100%;
+    min-height: 620px;
     .header-style {
       background-color: @back-color;
       z-index: 1;

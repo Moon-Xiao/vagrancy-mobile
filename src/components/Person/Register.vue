@@ -1,6 +1,6 @@
 <template>
   <div id="register">
-    <nav-header>
+    <nav-header style="background-color: #11bf79;">
       <div slot="left" class="back"></div>
       <div slot="middle" style="color: white">手机号注册</div>
     </nav-header>
@@ -40,7 +40,7 @@
   @back-color:#11bf79;
   #register {
     background-color: @back-color;
-    min-height: 600px;
+    min-height: 620px;
     .back {
       width: 100%;
       height: 100%;
@@ -50,7 +50,7 @@
       background-position: center;
     }
     > .input-lists {
-      margin-top: 90px;
+      padding-top: 120px;
       width: 100%;
       > .input-phone {
         width: 90%;
@@ -105,6 +105,7 @@
         text-align: center;
         background-color: white;
         color: @back-color;
+         border: none;
         border-radius: 3px;
       }
     }

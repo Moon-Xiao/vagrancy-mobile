@@ -20,7 +20,7 @@
   @back-color: #11bf79;
   @nav-color: #f5f5f5;
   #pending-evaluation {
-    min-height: 560px;
+    min-height: 570px;
     .look-btn {
       padding: 10px 50px;
       margin: 10px auto;

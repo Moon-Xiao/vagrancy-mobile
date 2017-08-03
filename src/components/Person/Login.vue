@@ -10,7 +10,7 @@
       </div>
     </nav-header>
     <login-table style="margin-top: 60px;background-color:#11bf79;"></login-table>
-    <login-bottom style="position: fixed;bottom: 12%;background-color:#11bf79;"></login-bottom>
+    <login-bottom style="position: fixed;bottom: 8%;background-color:#11bf79;"></login-bottom>
   </div>
 </template>
 <script>
@@ -40,7 +40,7 @@
 
   #login {
     background-color: @back-color;
-    min-height: 600px;
+    min-height: 620px;
     a {
       text-decoration: none;
     }
@@ -55,10 +55,14 @@
     .register-btn {
       padding: 5px 8px;
       border-radius: 3px;
+      border: none;
       border: 1px solid white;
       color: white;
       margin: auto 12px;
       background-color: @back-color;
+    }
+    .login-info{
+      padding-top: 50px;
     }
   }
 </style>

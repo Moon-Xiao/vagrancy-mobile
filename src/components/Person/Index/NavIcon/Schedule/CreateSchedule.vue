@@ -109,7 +109,7 @@
       width: 100%;
       background-color: white;
       > .form-nav {
-        padding-top: 40px;
+        padding-top: 55px;
         width: 90%;
         margin: 0 auto;
         > .schedule-time {

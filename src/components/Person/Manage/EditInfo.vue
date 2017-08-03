@@ -4,7 +4,7 @@
       <div slot="left" class="back"></div>
       <div slot="middle" style="color: white">编辑个人信息</div>
     </nav-header>
-    <form class="info-table">
+    <form class="info-table" style="clear: both;">
       <div ref="avatar" class="info-img" :style="`background-image: url('${avatar || img}')`" title="点我更换头像">
         <input style="width: 100%;height: 100%;opacity: 0" @change="addFile" type="file"
                accept="image/jpeg, image/png, image/gif"/>
@@ -108,7 +108,7 @@
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        margin: 50px auto;
+        margin: 130px auto 50px auto;
         background: url(/static/img/person/img/person.jpeg) no-repeat;
         background-size: cover;
         box-shadow: 0 0 5px #eee;
