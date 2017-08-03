@@ -41,6 +41,7 @@
 
   #login {
     background-color: @back-color;
+    min-height: 600px;
     a {
       text-decoration: none;
     }
