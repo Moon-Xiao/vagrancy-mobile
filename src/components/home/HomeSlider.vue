@@ -1,33 +1,30 @@
 <template>
   <div class="home-slider">
-    <div class="content">
-      <a v-for="slider in sliderContent">
-        <img :src="slider.img">
-        <p>{{slider.content}}</p>
-      </a>
-    </div>
+    <img-title-scroll :sliders="slidertitle"></img-title-scroll>
   </div>
 </template>
 <script>
+  import ImgTitleScroll from '../common/ImgTitleScroll.vue'
   export default {
+    components: {ImgTitleScroll},
     data () {
       return {
-        sliderContent: [
+        slidertitle: [
           {
             img: '/static/images/slider1 300_200.jpg',
-            content: '鹅銮鼻公园'
+            title: '鹅銮鼻公园'
           },
           {
             img: '/static/images/slider2 300_200.jpg',
-            content: '垦丁大街'
+            title: '垦丁大街'
           },
           {
             img: '/static/images/slider3 300_200.jpg',
-            content: '七星潭'
+            title: '七星潭'
           },
           {
             img: '/static/images/slider4 300_200.jpg',
-            content: '高雄捷运美丽岛站'
+            title: '高雄捷运美丽岛站'
           }
         ]
       }
@@ -41,13 +38,13 @@
     overflow: scroll;
   }
 
-  .home-slider .content {
+  .home-slider .title {
     width: 250%;
     margin: 0 10px;
     list-style: none;
   }
 
-  .home-slider .content a {
+  .home-slider .title a {
     float: left;
     text-decoration: none;
     margin-right: 10px;

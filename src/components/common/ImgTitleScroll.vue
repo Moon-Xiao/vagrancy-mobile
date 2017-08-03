@@ -1,6 +1,6 @@
 <template>
   <div class="img-title-slider">
-    <div class="content" :style="`width:${sliders.length*150}px `">
+    <div class="content" :style="`width:${sliders.length*200}px `">
       <a v-for="slider in sliders">
         <img :src="slider.img">
         <p>{{slider.title}}</p>
@@ -35,7 +35,7 @@
   }
 
   .img-title-slider img {
-    width: 120px;
+    width: 150px;
   }
 
   .img-title-slider p {
