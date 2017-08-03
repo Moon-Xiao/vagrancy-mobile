@@ -38,8 +38,6 @@
     -moz-background-size: 100% 100%;
     height: 20px;
     width: 20px;
-    margin-top: 30%;
-    margin-left: 10px;
   }
 
   .left {
@@ -61,12 +59,10 @@
     -moz-background-size: 100% 100%;
     height: 20px;
     width: 20px;
-    margin-top: 30%;
-    margin-left: 10px;
   }
 
   .right {
-    margin-right: 5px;
-    margin-top: 3px;
+    /*margin-right: 5px;*/
+    /*margin-top: 3px;*/
   }
 </style>

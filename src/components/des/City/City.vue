@@ -1,40 +1,35 @@
 <template>
   <div class="city">
-    <city-banner :imgs="bannerImgs"></city-banner>
-    <city-travels :desName="city.name" :travelsNum="city.travelsNum"></city-travels>
-    <city-fun-ion></city-fun-ion>
-    <city-map :cityName="`${city.name}地图`"></city-map>
-    <div class="city-top">
-
+    <des-top :name="city.name"></des-top>
+    <div class="ci-tabs">
+      <div v-for="(tab,index) in tabs" @click="nowTab=index" v-bind:class="['tab',{'active':nowTab===index}]">
+        {{tab}}
+      </div>
     </div>
-    <city-tab :cityName="city.name"></city-tab>
-    <title-more title="特价机票">
-      <city-plane slot="content"></city-plane>
-    </title-more>
-    <title-more title="团游">
-      <city-plane slot="content"></city-plane>
-    </title-more>
-    <travel-essentials></travel-essentials>
+    <ci-index v-if="nowTab===0" :city="city"></ci-index>
+    <ci-store v-if="nowTab===1"></ci-store>
+    <ci-hotel v-if="nowTab===2"></ci-hotel>
+    <ci-scenic v-if="nowTab===3"></ci-scenic>
     <des-bottom isWant="true"></des-bottom>
   </div>
 </template>
 <script>
-  import CityBanner from '../../common/Banner.vue'
+  import DesTop from '../DesTop.vue'
   import DesBottom from '../DesBottom.vue'
-  import CityTravels from '../DesInfoTravels.vue'
-  import CityFunIon from './CityFunIcon.vue'
-  import CityMap from '../DesMap.vue'
-  import CityTab from './CityTab.vue'
-  import CityPlane from '../../StoreApp/scrollerItems.vue'
-  import TitleMore from '../TitleMore.vue'
-  import TravelEssentials from '../TravelEssentials.vue'
+  import CiIndex from './CiIndex.vue'
+  import CiStore from './CiStore.vue'
+  import CiHotel from './CiHotel.vue'
+  import CiScenic from './CiScenic.vue'
+  import {swiper, swiperSlide} from 'vue-awesome-swiper'
 
   export default {
     components: {
-      CityBanner, DesBottom, CityTravels, CityFunIon, CityMap, CityTab, CityPlane, TitleMore, TravelEssentials
+      DesBottom, DesTop, CiIndex, CiStore, CiHotel, CiScenic, swiper, swiperSlide
     },
     data () {
       return {
+        nowTab: 0,
+        tabs: ['攻略', '商城', '酒店', '收藏'],
         bannerImgs: [
           '/static/images/content1.jpg',
           '/static/images/content2.jpg',
@@ -128,4 +123,18 @@
   }
 </script>
 <style>
+  .ci-tabs{
+    display: flex;
+    justify-content: space-around;
+    background-color: #11BF79;
+    color: white;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .ci-tabs .tab{
+    padding: 10px 0;
+  }
+  .ci-tabs .active {
+    border-bottom: 2px white solid;
+  }
 </style>

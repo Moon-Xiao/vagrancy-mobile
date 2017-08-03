@@ -11,15 +11,14 @@
     data () {
       return {
         banners: [
-          '/static/images/slider1 300_200.jpg',
-          '/static/images/slider2 300_200.jpg',
-          '/static/images/slider3 300_200.jpg',
-          '/static/images/slider4 300_200.jpg'
+          '/static/images/home/1.jpg',
+          '/static/images/home/2.jpg',
+          '/static/images/home/3.jpg',
+          '/static/images/home/4.jpg'
         ]
       }
     }
   }
-
 </script>
 <style>
   .home-banner {

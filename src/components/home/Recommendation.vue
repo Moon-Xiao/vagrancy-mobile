@@ -50,8 +50,10 @@
   }
 
   .recommendation .content {
+    color: white;
     padding: 10px;
-    background-color: cadetblue;
+    background:url("/static/images/home/home2.png");
+    background-size: 100%;
     border-radius: 5px 5px 0 0;
   }
 
@@ -75,8 +77,8 @@
   display: inline-block;
 }
   .title #city-title {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 20px;
+    margin: 15px 0;
   }
 
   .recommendation .tags {

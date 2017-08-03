@@ -59,7 +59,7 @@
             this.resizing = false
           }, 200)
         }
-      }, false)
+      })
     }
   }
 </script>

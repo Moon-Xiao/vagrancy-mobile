@@ -8,7 +8,7 @@ import City from '../components/des/City/City.vue'
 import Scenic from '../components/des/Scenic/Scenic.vue'
 import ScenicDetail from '../components/des/Scenic/DetailSc.vue'
 import Travel from '../components/Travel/Travel.vue'
-import TravelList from '../components/Travel/TravelList.vue'
+import TravelList from '../components/Travel/AllTravelList.vue'
 import CommunityList from '../components/community/CommunityList.vue'
 
 import Person from '../components/Person/Person.vue'
@@ -48,6 +48,10 @@ export default new Router({
         {
           path: 'destination',
           component: Destination
+        },
+        {
+          path: 'community',
+          component: CommunityList
         },
         {
           path: 'person',

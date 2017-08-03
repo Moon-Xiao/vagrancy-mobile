@@ -27,6 +27,11 @@
     top: 0;
     z-index: 999;
     color: white;
+    padding: 0 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .top-margin {
@@ -34,19 +39,14 @@
   }
 
   .left {
-    position: absolute;
-    left: 0;
-    vertical-align: middle;
+    /*align-self: flex-start;*/
   }
 
   .middle {
-    height: 100%;
+    /*align-self: center;*/
   }
 
   .right {
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
+    /*align-self: flex-end;*/
   }
 </style>

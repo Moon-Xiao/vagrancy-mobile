@@ -6,12 +6,12 @@
           <div class="back-img"></div>
         </router-link>
       </div>
-      <div slot="right" class="right">
+      <div slot="right" class="icons">
         <div class="like-img" @click="liked=!liked">
-          <img v-if="!liked" src="/static/images/icon/like-w.svg"/>
-          <img v-if="liked" src="/static/images/icon/liked.svg"/>
+          <svg-image v-if="!liked" src="/static/images/icon/like-w.svg"></svg-image>
+          <svg-image v-if="liked" src="/static/images/icon/liked.svg"></svg-image>
         </div>
-        <div class="more-img" @click="clicked=!clicked"></div>
+        <svg-image src="/static/images/icon/more.svg" class="more-img" @click="clicked=!clicked"></svg-image>
       </div>
     </top>
     <div class="bottom" v-if="clicked">
@@ -20,8 +20,9 @@
 </template>
 <script>
   import Top from '../common/Top.vue'
+  import SvgImage from '../common/SvgImage.vue'
   export default {
-    components: {Top},
+    components: {Top, SvgImage},
     data () {
       return {
         liked: true,
@@ -52,11 +53,11 @@
     margin-left: 10px;
   }
 
-  .right {
-    margin-right: 5px;
-    margin-top: 3px;
+  .icons {
+    display: flex;
   }
-  .right img{
+
+  .icons > div{
     width: 25px;
     height: 25px;
     margin-top: 5px;
