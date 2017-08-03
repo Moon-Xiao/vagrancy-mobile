@@ -20,6 +20,7 @@
 <style>
   #app {
     background-color: #F5F5F5;
+    font-family: 苹方,\\82F9\65B9,PingFang,Helvetica,Arial,sans-serif!important;
   }
   #app li {
     list-style: none;

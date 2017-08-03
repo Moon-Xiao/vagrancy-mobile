@@ -5,26 +5,32 @@
       <swi-tab :tabs="tabs">
         <div class="c-tab" slot="nav-0">
           <div v-for="sc in sceneryScenics" class="scenic-tab">
-            <div class="scenic">
-              <div class="img" :style="`background-image: url('${sc.img}')`"></div>
-              <div class="name">{{sc.name}}</div>
-            </div>
+            <router-link to="/scenic">
+              <div class="scenic">
+                <div class="img" :style="`background-image: url('${sc.img}')`"></div>
+                <div class="name">{{sc.name}}</div>
+              </div>
+            </router-link>
           </div>
         </div>
         <div class="c-tab" slot="nav-1">
           <div v-for="sc in foodScenics" class="scenic-tab">
-            <div class="scenic">
-              <div class="img" :style="`background-image: url('${sc.img}')`"></div>
-              <div class="name">{{sc.name}}</div>
-            </div>
+            <router-link to="/scenic">
+              <div class="scenic">
+                <div class="img" :style="`background-image: url('${sc.img}')`"></div>
+                <div class="name">{{sc.name}}</div>
+              </div>
+            </router-link>
           </div>
         </div>
         <div class="c-tab" slot="nav-2">
           <div v-for="sc in shopScenics" class="scenic-tab">
-            <div class="scenic">
-              <div class="img" :style="`background-image: url('${sc.img}')`"></div>
-              <div class="name">{{sc.name}}</div>
-            </div>
+            <router-link to="/scenic">
+              <div class="scenic">
+                <div class="img" :style="`background-image: url('${sc.img}')`"></div>
+                <div class="name">{{sc.name}}</div>
+              </div>
+            </router-link>
           </div>
         </div>
       </swi-tab>
@@ -104,34 +110,43 @@
   }
 </script>
 <style scoped>
-  .city-tab-div{
+  .city-tab-div {
     background-color: white;
   }
-  .title{
+
+  .title {
     text-align: center;
     font-weight: bold;
     font-size: 20px;
     padding: 20px;
     color: #444444;
   }
+
   .c-tab {
     background-color: gray;
     width: 100%;
     background-color: white;
-    padding: 15px 5px;
+    padding: 15px 6px;
   }
-  .scenic-tab{
+
+  .scenic-tab {
     width: 50%;
     display: inline-block;
+    margin-bottom: 15px;
   }
+
   .scenic-tab .scenic {
-    margin:0 5px;
+    margin: 0 7px;
   }
-  .scenic-tab .img{
-    height: 80px;
+
+  .scenic-tab .img {
+    height: 100px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    -moz-background-size:100% 100%;
+    -moz-background-size: 100% 100%;
+  }
+  .scenic-tab .scenic .name{
+    color: #444;
   }
 </style>

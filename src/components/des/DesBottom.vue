@@ -1,10 +1,17 @@
 <template>
   <div style="margin-top: 50px">
     <div class="des-bottom">
-      <span v-if="isWant" class="want">添加到我想去</span>
-      <div v-else class="want">从想去中移除</div>
-      <span class="partner">结伴</span>
-      <span class="qa">问答</span>
+      <span v-if="isWant===false" class="want" @click="isWant=true">
+        <img src="/static/images/des/icon/like.svg" class="icon"/>
+        添加到我想去
+      </span>
+      <span v-else class="want" @click="isWant=false">
+        <img src="/static/images/des/icon/liked.svg" class="icon"/>从想去中移除
+      </span>
+      <span class="partner">
+        <img src="/static/images/des/icon/friends.svg" class="icon"/>结伴</span>
+      <span class="qa">
+        <img src="/static/images/des/icon/QA.svg" class="icon"/>问答</span>
     </div>
   </div>
 </template>
@@ -15,7 +22,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .des-bottom {
     width: 100%;
     position: fixed;
@@ -45,6 +52,13 @@
 
   .des-bottom .qa {
     flex: 3;
+  }
+
+  .des-bottom .icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
   }
 
 

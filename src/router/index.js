@@ -6,7 +6,11 @@ import Destination from '../components/Destinations.vue'
 import Country from '../components/des/Country/Country.vue'
 import City from '../components/des/City/City.vue'
 import Scenic from '../components/des/Scenic/Scenic.vue'
-import ScenicDetail from '../components/des/Scenic/ScDetail.vue'
+import ScenicDetail from '../components/des/Scenic/DetailSc.vue'
+import Travel from '../components/Travel/Travel.vue'
+import TravelList from '../components/Travel/TravelList.vue'
+import CommunityList from '../components/community/CommunityList.vue'
+
 import Person from '../components/Person/Person.vue'
 import Register from '../components/Person/Register.vue'
 import Login from '../components/Person/Login.vue'
@@ -134,6 +138,18 @@ export default new Router({
     {
       path: '/country',
       component: Country
+    },
+    {
+      path: '/travel',
+      component: Travel
+    },
+    {
+      path: '/travel/list',
+      component: TravelList
+    },
+    {
+      path: '/community/list',
+      component: CommunityList
     },
     {
       path: '/stores/flight',

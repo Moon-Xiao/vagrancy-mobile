@@ -1,5 +1,6 @@
 <template>
   <div class="country">
+    <des-top :name="country.name"></des-top>
     <country-banner :imgs="bannerImgs"></country-banner>
     <des-travels :desName="country.name" :travelsNum="country.travelsNum"></des-travels>
     <fun-icon></fun-icon>
@@ -27,6 +28,7 @@
   </div>
 </template>
 <script>
+  import DesTop from '../DesTop.vue'
   import CountryBanner from '../../common/Banner.vue'
   import DesTravels from '../DesInfoTravels.vue'
   import FunIcon from './CountryFunIcon.vue'
@@ -34,7 +36,7 @@
   import TitleMore from '../TitleMore.vue'
   import CityPlane from '../../StoreApp/scrollerItems.vue'
   export default {
-    components: {CountryBanner, DesTravels, FunIcon, CountryBottom, TitleMore, CityPlane},
+    components: {CountryBanner, DesTravels, FunIcon, CountryBottom, TitleMore, CityPlane, DesTop},
     data () {
       return {
         bannerImgs: [

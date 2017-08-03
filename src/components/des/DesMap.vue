@@ -1,6 +1,7 @@
 <template>
   <div class="des-map">
-    <div class="content">{{content}}</div>
+      <span class="content-info">{{content}}</span>
+
   </div>
 </template>
 <script>
@@ -14,16 +15,16 @@
   .des-map{
     background: url("/static/images/des/map.png");
     height: 95px;
-    position: relative;
     color: #11BF79;
+    text-align: center;
   }
-  .des-map .content {
+  .des-map .content-info {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 33px;
     background-color: white;
-    position: absolute;
-    top: 40%;
-    left: 35%;
     padding: 3px 15px;
-    border-radius: 20px;
+    border-radius: 15px;
     border:1.3px #11BF79 solid;
   }
 </style>
