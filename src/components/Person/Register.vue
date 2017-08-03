@@ -38,11 +38,9 @@
 </script>
 <style lang="less">
   @back-color:#11bf79;
-  body {
-    background-color: @back-color;
-  }
   #register {
     background-color: @back-color;
+    min-height: 600px;
     .back {
       width: 100%;
       height: 100%;
