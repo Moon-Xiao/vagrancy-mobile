@@ -2,11 +2,10 @@
   <div style="margin-top: 50px">
     <div class="des-bottom">
       <span v-if="isWant===false" class="want" @click="isWant=true">
-        <img src="/static/images/des/icon/like.svg" class="icon"/>
-        添加到我想去
+        <svg-image src="/static/images/icon/like.svg" class="icon"></svg-image>添加到我想去
       </span>
       <span v-else class="want" @click="isWant=false">
-        <img src="/static/images/des/icon/liked.svg" class="icon"/>从想去中移除
+        <svg-image src="/static/images/icon/like.svg" class="icon active"></svg-image>从想去中移除
       </span>
       <span class="partner">
         <img src="/static/images/des/icon/friends.svg" class="icon"/>结伴</span>
@@ -16,7 +15,10 @@
   </div>
 </template>
 <script>
+  import SvgImage from '../common/SvgImage.vue'
+
   export default {
+    components: {SvgImage},
     props: {
       isWant: Boolean
     }
@@ -55,10 +57,15 @@
   }
 
   .des-bottom .icon {
-    width: 16px;
-    height: 16px;
     vertical-align: middle;
     margin-right: 5px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+  }
+
+  .des-bottom .icon.active {
+    fill: #ee6455;
   }
 
 

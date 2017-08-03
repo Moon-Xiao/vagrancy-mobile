@@ -1,7 +1,7 @@
 process.env.NODE_ENV = 'dev'
 process.env.MOCK_USER = 'dev'
 process.env.METHOD = 'SERVER'
-process.env.RENDER = 'de'
+process.env.RENDER = 'dev'
 
 const service = require('core-service')
 

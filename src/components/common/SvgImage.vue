@@ -29,6 +29,9 @@
            */
           const svg = xmlDoc.getElementsByTagName('svg')[0]
 
+          svg.setAttribute('width', '100%')
+          svg.setAttribute('height', '100%')
+
           this.$refs.svg.appendChild(svg)
         })
     }
