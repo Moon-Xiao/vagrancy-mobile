@@ -3,7 +3,7 @@
     <div class="content">
       <div class="title">
         <p id="content-title">为你推荐</p>
-        <p id="city-title">{{recommendCities[0]}}</p>
+        <router-link to="/city"><p id="city-title">{{recommendCities[0]}}</p></router-link>
       </div>
       <div class="tag-icon">
         <div class="food-icon"><img class="icon" src="/static/images/icon/home1.1.svg">景点美食</div>
@@ -16,7 +16,7 @@
     <div class="tags">
       <div class="city-tag">
         <img class="icon" src="/static/images/icon/home1.5.svg">
-        <span>{{recommendCities[1]}}</span>
+        <router-link to="/city"><span>{{recommendCities[1]}}</span></router-link>
       </div>
       <div class="city-tag">
         <img class="icon" src="/static/images/icon/home1.5.svg">
@@ -33,7 +33,7 @@
   export default {
     data () {
       return {
-        recommendCities: ['东京', '佛罗伦萨', '巴厘岛', '墨尔本']
+        recommendCities: ['沈阳', '北京', '巴厘岛', '墨尔本']
       }
     }
   }
@@ -43,7 +43,9 @@
     text-align: center;
     margin: 0 10px;
   }
-
+  #city-title{
+    color: white!important;
+  }
   .recommendation .tag-icon .icon {
     margin: auto;
     height: 30px;

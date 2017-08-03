@@ -31,6 +31,7 @@
     bottom: 0;
     display: flex;
     background-color: white;
+    margin-top: 25px;
   }
 
   .des-bottom span {

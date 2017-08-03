@@ -7,7 +7,7 @@
       </div>
     </div>
     <ci-index v-if="nowTab===0" :city="city"></ci-index>
-    <ci-store v-if="nowTab===1"></ci-store>
+    <ci-store v-if="nowTab===1" :cityName="city.name"></ci-store>
     <ci-hotel v-if="nowTab===2"></ci-hotel>
     <ci-scenic v-if="nowTab===3"></ci-scenic>
     <des-bottom isWant="true"></des-bottom>

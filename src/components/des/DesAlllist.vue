@@ -1,6 +1,7 @@
 <template>
   <div class="des-all-list">
-    <des-list></des-list>
+    <div class="title">全部景点</div>
+    <des-list :scenics="scenics"></des-list>
   </div>
 </template>
 <script>
