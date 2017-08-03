@@ -2,11 +2,11 @@
  * Created by jagger on 2017/7/12.
  */
 import Axios from 'axios'
-// import * as Error from '/Users/jagger/WebstormProjects/core/core-service/common/error'
+import * as Error from 'core-service/common/error'
 
 let CoreServiceError = Error.CoreServiceError || {parse: v => v}
 
-export const baseURL = 'http://10.25.19.147:3004'
+export const baseURL = ''
 
 const api = Axios.create({
   baseURL: `${baseURL}/api`,

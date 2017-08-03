@@ -5,7 +5,7 @@
       <div slot="middle" style="color: white">编辑个人信息</div>
     </nav-header>
     <form class="info-table">
-      <div class="info-img" :style="`background-image: url('${img}')`" title="点我更换头像">
+      <div ref="avatar" class="info-img" :style="`background-image: url('${avatar || img}')`" title="点我更换头像">
         <input style="width: 100%;height: 100%;opacity: 0" @change="addFile" type="file"
                accept="image/jpeg, image/png, image/gif"/>
       </div>
@@ -47,10 +47,11 @@
           let reader = new FileReader()
           reader.onload = (function (aDiv) {
             return function (e) {
-              aDiv.css('background', 'url(' + e.target.result + ') no-repeat center')
-              aDiv.css('background-size', 'cover')
+              aDiv.style.background = 'url(' + e.target.result + ') no-repeat center'
+              aDiv.style.backgroundSize = 'cover'
+              aDiv.style.backgroundPosition = 'center'
             }
-          })(window.$('#photo-img'))
+          })(this.$refs.avatar)
           reader.readAsDataURL(this.avatar)
         }
       },
@@ -72,7 +73,7 @@
     },
     computed: {
       img () {
-        return this.userInfo.avatar ? this.baseUrl + this.userInfo.avatar.path : '/static/img/person/img/person.jpeg'
+        return this.userInfo.avatar ? this.baseUrl + '/' + this.userInfo.avatar.path : '/static/img/person/img/person.jpeg'
       }
     }
   }

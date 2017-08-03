@@ -57,7 +57,7 @@
     },
     computed: {
       img () {
-        return this.userInfo.avatar ? this.baseUrl + this.userInfo.avatar.path : ''
+        return this.userInfo.avatar ? this.baseUrl + '/' + this.userInfo.avatar.path : '/static/img/person/img/person.jpeg'
       },
       name () {
         return this.userInfo.nickname

@@ -35,8 +35,10 @@
   import CountryBottom from '../DesBottom.vue'
   import TitleMore from '../TitleMore.vue'
   import CityPlane from '../../StoreApp/scrollerItems.vue'
+  import CityTab from '../City/CityTab.vue'
+
   export default {
-    components: {CountryBanner, DesTravels, FunIcon, CountryBottom, TitleMore, CityPlane, DesTop},
+    components: {CountryBanner, DesTravels, FunIcon, CountryBottom, TitleMore, CityPlane, CityTab, DesTop},
     data () {
       return {
         bannerImgs: [

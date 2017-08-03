@@ -7,7 +7,7 @@
     </div>
     <ul>
       <li v-for="item in contents">
-        <img :src="item.img"/>
+        <magic-image class="img" :src="item.img"></magic-image>
         <span class="type-tag">{{item.type}}</span>
         <div v-if="item.type==='游记'" class="author">
           <img class="author-img" :src="item.authorImg">
@@ -23,7 +23,9 @@
   </div>
 </template>
 <script>
+  import MagicImage from '../common/MagicImage.vue'
   export default {
+    components: {MagicImage},
     data () {
       return {
         nowTag: 0,
@@ -55,7 +57,7 @@
           {
             type: '游记',
             author: 'cc',
-            authorImg: '',
+            authorImg: '/static/images/content3.jpg',
             title: '朋友圈那些美照的背后，都有一个男默女泪的真相',
             info: '每一条完美的朋友圈背后，都有一些不为人所知的故事',
             img: '/static/images/content2.jpg'
@@ -104,7 +106,7 @@
     margin-bottom: 12px;
   }
 
-  .home-list img {
+  .home-list .img {
     width: 100%;
     height: 150px;
 
@@ -147,6 +149,8 @@
     border: 2px white solid;
     margin: auto;
     margin-top: -30px;
+    z-index: 50;
+    position: relative;
   }
 
   .home-list .author-name {

@@ -1,94 +1,84 @@
 <template>
-  <div class="banner">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" v-for="img in imgs">
-        <a href="#">
-          <img :src="img"/>
-        </a>
-      </div>
-    </div>
-    <div class="swiper-pagination swiper-pagination-bullets">
-      <span class="swiper-pagination-bullet"></span>
-      <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
-      <span class="swiper-pagination-bullet"></span>
-    </div>
-  </div>
+  <swiper class="banners" :class="{resizing}" :style="{height: height + 'px'}" ref="banner" :options="swiperOption">
+    <swiper-slide v-for="img in imgs">
+      <a>
+        <div class="banner" :style="`background-image: url('${img}')`"></div>
+      </a>
+    </swiper-slide>
+    <div class="swiper-pagination" slot="pagination"></div>
+  </swiper>
 </template>
 <script>
+  import {swiper, swiperSlide} from 'vue-awesome-swiper'
+
   export default {
+    components: {
+      swiper,
+      swiperSlide
+    },
     data () {
       return {
-
+        height: 200,
+        startDrag: false,
+        resizing: false
+      }
+    },
+    computed: {
+      swiperOption () {
+        return {
+          pagination: '.swiper-pagination',
+          paginationClickable: true,
+          autoplay: 2500,
+          autoplayDisableOnInteraction: true
+        }
       }
     },
     props: {
-      imgs: Array
+      imgs: Array,
+      required: true
+    },
+    mounted () {
+      window.addEventListener('touchmove', e => {
+        if (!this.startDrag && document.body.scrollTop <= 0) {
+          this.startDrag = e.touches[0].clientY
+        } else if (this.startDrag) {
+          this.height = 200 + (e.touches[0].clientY - this.startDrag) / 3
+          e.preventDefault()
+        }
+        if (this.height < 200) {
+          this.height = 200
+          this.startDrag = false
+        }
+      }, {passive: false})
+      window.addEventListener('touchend', () => {
+        if (this.startDrag) {
+          this.resizing = true
+          this.height = 200
+          this.startDrag = false
+          setTimeout(() => {
+            this.resizing = false
+          }, 200)
+        }
+      }, false)
     }
   }
 </script>
-<style>
+<style scoped>
   .banner {
-    width: 100%;
-    position: relative;
+    background-position: center;
+    background-size: cover;
     height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-
   }
 
-  .banner .swiper-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    transition-property: -webkit-transform;
-    transition-property: transform;
-    transition-property: transform, -webkit-transform;
-    box-sizing: content-box;
+  .banners.resizing {
+    transition: height 200ms;
+    height: 200px;
   }
 
-  .banner img {
-    width: 414px;
-    /*width: 100%;*/
-    display: block;
+</style>
+<style>
+  .banners .swiper-pagination-bullet-active {
+    background: rgba(255, 255, 255, 0.5);
   }
 
-  .swiper-pagination {
-    position: absolute;
-    text-align: center;
-    transition: .3s;
-    -webkit-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    transform: translateZ(0);
-    z-index: 10;
-    bottom: 10px;
-    left: 0;
-    width: 100%;
-  }
-
-  .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-    margin: 0 5px;
-  }
-
-  .index-film .swiper-pagination-bullet {
-    opacity: .5;
-    background: #fff;
-    color: #fff;
-  }
-
-  .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    display: inline-block;
-    border-radius: 100%;
-    background: #000;
-    opacity: .2;
-  }
-
-  .swiper-pagination-bullet-active {
-    opacity: 1;
-    background: #fff;
-    color: #fff;
-  }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="top-margin">
     <div class="Top">
-      <div class="left">
+      <div class="left" @click="$router.back()">
         <slot name="left">
         </slot>
       </div>

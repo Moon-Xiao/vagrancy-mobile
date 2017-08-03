@@ -4,12 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import api from './api'
+import api, {baseURL} from './api'
 import moment from 'moment'
 
 Vue.config.productionTip = false
-
-const baseURL = api.baseURL
 
 Vue.mixin({
   computed: {
