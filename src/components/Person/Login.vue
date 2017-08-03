@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <nav-header>
+    <nav-header style="background-color:#11bf79;">
       <div slot="left" class="back"></div>
       <div slot="middle" style="color: white">账号密码</div>
       <div slot="right">
@@ -9,8 +9,8 @@
         </router-link>
       </div>
     </nav-header>
-    <login-table style="margin-top: 60px"></login-table>
-    <login-bottom style="position: fixed;bottom: 12%"></login-bottom>
+    <login-table style="margin-top: 60px;background-color:#11bf79;"></login-table>
+    <login-bottom style="position: fixed;bottom: 12%;background-color:#11bf79;"></login-bottom>
   </div>
 </template>
 <script>
