@@ -65,7 +65,42 @@
     </div>
     <div @click="seen=false" v-if="seen" class="mask"></div>
     <div v-if="seen" class="type-choose">
-      <div class="pro-des-title">{{product.title}}</div>
+      <div class="type-ch-div">
+        <div class="pro-des-title">{{product.title}}</div>
+        <div class="pro-type-div">
+          <div class="pro-type-title">出发城市</div>
+          <div class="pro-type-item-nav">
+            <div  v-for="item in 10" class="pro-type-item">香港</div>
+          </div>
+        </div>
+        <div class="pro-type-div">
+          <div class="pro-type-title">行程天数</div>
+          <div class="pro-type-item-nav">
+            <div v-for="item in 4" class="pro-type-item">香港</div>
+          </div>
+        </div>
+        <div class="pro-type-div">
+          <div class="pro-type-title">航空公司</div>
+          <div class="pro-type-item-nav">
+            <div v-for="item in 4" class="pro-type-item">香港</div>
+          </div>
+        </div>
+        <div class="pro-type-div">
+          <div class="pro-type-title">出行日期</div>
+          <div class="pro-type-item-nav">
+            <div v-for="item in 4" class="pro-type-item">香港</div>
+          </div>
+        </div>
+        <div class="pro-type-div">
+          <div class="pro-type-title">数量</div>
+          <div class="plus-minus-div">
+            <button type="button" class="yunsuan" @click="number=number>1?number-1:1">-</button>
+            <input id="choose-number-input" type="number" pattern="[0-9][1-9]*" :value="number"/>
+            <button type="button" class="yunsuan" @click="number++">+</button>
+          </div>
+        </div>
+        <router-link to="/stores/payorder" class="bottom-buy">确定</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -74,6 +109,11 @@
   export default {
     data () {
       return {
+        choosen1: 0,
+        choosen2: 0,
+        choosen3: 0,
+        choosen4: 0,
+        number: 1,
         seen: false,
         product: {
           imgSrc: '/static/images/store_temp/aomen.jpg',
@@ -151,6 +191,12 @@
     }
     a {
       text-decoration: none;
+    }
+
+    .active {
+      color: rgb(253, 117, 107);
+      border: solid 1px rgb(253, 117, 107);
+      box-shadow: 0 0 2px rgb(253, 117, 107);
     }
 
     .intro-title {
@@ -296,10 +342,11 @@
           flex-wrap: wrap;
 
           > .second-line-item {
-            width: 45%;
+            width: 50%;
             height: 200px;
             margin-bottom: 5px;
             padding: 5px 10px 0 10px;
+            box-sizing: border-box;
 
             > img {
               width: 100%;
@@ -333,7 +380,7 @@
       position: fixed;
       bottom: 0;
       left: 0;
-      height: 70px;
+      height: 57px;
       background-color: rgb(113, 113, 113);
       width: 100%;
       color: white;
@@ -368,10 +415,10 @@
     > .mask {
       width: 100%;
       height: 20%;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      background-color: rgba(0,0,0,0.4);
+      background-color: rgba(0, 0, 0, 0.4);
     }
 
     > .type-choose {
@@ -383,10 +430,72 @@
       left: 0;
       overflow: scroll;
 
-      > .pro-des-title{
-        padding: 10px;
-        font-size: 18px;
-        color: #444444;
+      > .type-ch-div {
+        height: 120%;
+
+        > .pro-des-title {
+          padding: 10px;
+          font-size: 18px;
+          color: #444444;
+          border-bottom: solid 1px rgb(220, 220, 220);
+        }
+
+        > .pro-type-div {
+          padding: 10px;
+
+          > .pro-type-title {
+            font-size: 14px;
+            color: #333333;
+            margin-bottom: 10px;
+          }
+
+          > .pro-type-item-nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
+            > .pro-type-item {
+              border: solid 1px rgb(253, 117, 107);
+              background-color: white;
+              color: #777777;
+              font-size: 14px;
+              padding: 5px 10px;
+              margin-right: 10px;
+              margin-bottom: 5px;
+            }
+          }
+
+          > .plus-minus-div {
+
+            > #choose-number-input{
+              width: 30px;
+              text-align: right;
+            }
+
+            > .yunsuan {
+              outline: none;
+              width: 1.5rem;
+              background-color: rgb(240, 240, 240);
+              border: none;
+
+            }
+          }
+        }
+
+        > .bottom-buy {
+          position: fixed;
+          bottom: 0;
+          height: 50px;
+          color: white;
+          font-size: 20px;
+          background-color: rgb(253, 117, 107);
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+        }
       }
 
     }

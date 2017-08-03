@@ -252,7 +252,7 @@
       position: fixed;
       bottom: 0;
       left: 0;
-      height: 70px;
+      height: 55px;
       background-color: rgb(113, 113, 113);
       width: 100%;
       color: white;

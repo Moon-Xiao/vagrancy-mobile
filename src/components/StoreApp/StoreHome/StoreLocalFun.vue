@@ -7,6 +7,7 @@
     <div class="local-fun-content">
       <div class="content-line">
         <div class="content-line-item">
+          <img src=""/>
           <span class="item-title">日游小团</span>
         </div>
         <div class="content-line-item">
@@ -40,6 +41,7 @@
 
   .store-local-fun-container {
     margin-top: 8px;
+    background-color: white;
 
     > .local-fun-top {
       height: 55px;
@@ -51,7 +53,7 @@
         text-align: center;
         float: left;
         font-size: 20px;
-        padding-left: 70px;
+        padding-left: 80px;
         color: #555555;
       }
 
@@ -64,7 +66,6 @@
 
     > .local-fun-content {
       height: @height - 54px;
-      background-image: url("/static/images/store_temp/store1.1.png");
       background-size: 100% 100%;
 
       > .content-line {
