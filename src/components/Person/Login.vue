@@ -34,7 +34,6 @@
 <style lang="less">
   @back-color:#11bf79;
   body {
-    background-color: @back-color;
     margin: 0;
     padding: 0;
   }
